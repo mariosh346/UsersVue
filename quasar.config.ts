@@ -14,7 +14,8 @@ export default defineConfig((ctx) => {
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
     boot: [
       'i18n',
-      'axios'
+      'axios',
+    'vueFireInit'
     ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
@@ -67,7 +68,7 @@ export default defineConfig((ctx) => {
 
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
-      
+
       vitePlugins: [
         ['@intlify/unplugin-vue-i18n/vite', {
           // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
@@ -92,7 +93,30 @@ export default defineConfig((ctx) => {
           overlay: {
             initialIsOpen: false,
           }
-        }, { server: false }]
+        }, { server: false }],
+        {
+          name: 'default-lang-ts-scss',
+          transform(code, id) {
+            if (id.endsWith('.vue')) {
+              // Add lang="ts" to <script> blocks
+              code = code.replace(/<script(\s[^>]*)?>/g, (match) => {
+                if (!match.includes('lang=')) {
+                  return match.replace('<script', '<script lang="ts"');
+                }
+                return match;
+              });
+
+              // Add lang="scss" to <style> blocks
+              code = code.replace(/<style(\s[^>]*)?>/g, (match) => {
+                if (!match.includes('lang=')) {
+                  return match.replace('<style', '<style scoped lang="scss"');
+                }
+                return match;
+              });
+            }
+            return code;
+          },
+        },
       ]
     },
 
