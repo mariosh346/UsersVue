@@ -1,8 +1,14 @@
 <template>
-  <q-date v-model="date" data-cy="date-picker" />
+  <q-date
+    v-model="date"
+    data-cy="date-picker"
+  />
 
   <div>
-    <q-input v-model="date" label="Scegli data">
+    <q-input
+      v-model="date"
+      label="Scegli data"
+    >
       <template #append>
         <q-btn
           data-cy="open-date-picker-popup-button"
@@ -14,7 +20,10 @@
       </template>
     </q-input>
     <q-dialog ref="dateDialogRef">
-      <q-date v-model="date" @update:model-value="dateDialogRef.hide()" />
+      <q-date
+        v-model="date"
+        @update:model-value="dateDialogRef.hide()"
+      />
     </q-dialog>
   </div>
 
