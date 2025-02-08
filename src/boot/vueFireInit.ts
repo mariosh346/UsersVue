@@ -6,30 +6,27 @@ import {
   indexedDBLocalPersistence,
   prodErrorMap,
 } from 'firebase/auth'
-import { firebaseApp, signinRedirect } from 'src/utlils/firestore/db'
-// import { getItems } from 'src/utlils/firestore/composables'
+import { firebaseApp } from 'src/utlils/firestore/db'
 
 // "async" is optional;
 // more info on params: https://v2.quasar.dev/quasar-cli-vite/boot-files
 export default defineBoot(({ app }) => {
-  // signinRedirect();
-  // app.use(VueFire, {
-  //   // imported above but could also just be created here
-  //   firebaseApp,
-  //   modules: [
-  //     VueFireAuthWithDependencies({
-  //       dependencies: {
-  //         errorMap:
-  //           process.env.NODE_ENV !== 'production'
-  //             ? debugErrorMap
-  //             : prodErrorMap,
-  //         persistence: [
-  //           indexedDBLocalPersistence,
-  //           browserLocalPersistence,
-  //         ]
-  //       }
-  //     }),
-  //   ],
-  // })
+  app.use(VueFire, {
+    firebaseApp,
+    // modules: [
+    //   VueFireAuthWithDependencies({
+    //     dependencies: {
+    //       errorMap:
+    //         process.env.NODE_ENV !== 'production'
+    //           ? debugErrorMap
+    //           : prodErrorMap,
+    //       persistence: [
+    //         indexedDBLocalPersistence,
+    //         browserLocalPersistence,
+    //       ]
+    //     }
+    //   }),
+    // ],
+  })
 })
 

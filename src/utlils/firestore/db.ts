@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import type { Auth} from 'firebase/auth';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
 import { getFirestore, collection } from 'firebase/firestore'
 const firebaseConfig = {
   apiKey: "AIzaSyByqnFhzkTWWLjWczPN41c-5IbfJn3hRuI",
@@ -56,6 +56,20 @@ export function signinPopup() {
         throw error;
       });
     }
+
+    onAuthStateChanged(authFire, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+        console.log('User is signed in', uid)
+        // ...
+      } else {
+        console.log('User is signed out')
+        // User is signed out
+        // ...
+      }
+    });
 
 // export const itemsCollection = collection(db, 'collections')
 // export const usersCollection = collection(db, 'users')
