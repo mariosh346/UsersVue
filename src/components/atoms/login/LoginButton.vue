@@ -10,7 +10,7 @@ import {
 import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 import { ref, onMounted } from 'vue';
 import { signinPopup } from 'src/utlils/firestore/db';
-// import { getItems } from 'src/utlils/firestore/composables';
+import { getCurrentUserData, getItems } from 'src/utlils/firestore/composables';
 
 
 // const googleAuthProvider = new GoogleAuthProvider()
@@ -19,7 +19,6 @@ import { signinPopup } from 'src/utlils/firestore/db';
 // const auth = getAuth(firebaseApp);
 
 // const error = ref(null)
-// console.log(getItems())
 
 function signinRedirect() {
   signinPopup()

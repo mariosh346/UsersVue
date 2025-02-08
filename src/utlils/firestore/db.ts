@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import type { Auth} from 'firebase/auth';
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
+import { ref } from 'vue';
 import { getFirestore, collection } from 'firebase/firestore'
 const firebaseConfig = {
   apiKey: "AIzaSyByqnFhzkTWWLjWczPN41c-5IbfJn3hRuI",
@@ -16,8 +17,8 @@ export const firebaseApp = initializeApp(
 )
 
 // used for the firestore refs
-// export const db = getFirestore(firebaseApp)
-const authFire = getAuth(firebaseApp);
+export const db = getFirestore(firebaseApp)
+export const authFire = getAuth(firebaseApp);
 
 const googleAuthProvider = new GoogleAuthProvider();
 
@@ -55,21 +56,8 @@ export function signinPopup() {
         console.error('Failed signinRedirect error: ', errorCode, errorMessage, email, credential)
         throw error;
       });
-    }
+}
 
-    onAuthStateChanged(authFire, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
-        const uid = user.uid;
-        console.log('User is signed in', uid)
-        // ...
-      } else {
-        console.log('User is signed out')
-        // User is signed out
-        // ...
-      }
-    });
 
 // export const itemsCollection = collection(db, 'collections')
 // export const usersCollection = collection(db, 'users')

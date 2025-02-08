@@ -6,15 +6,24 @@
       :todos="todos"
       :meta="meta"
     />
-    <login-button />
+    <div>
+      <login-button />
+      <div>
+        {{ user }}
+      </div>
+    </div>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 import type { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
 import LoginButton from 'src/components/atoms/login/LoginButton.vue';
+import { useUserStore } from 'src/stores/userStore';
+import { watch } from 'fs';
+import { storeToRefs } from 'pinia';
+// import { getCurrentUserData } from 'src/utlils/firestore/composables';
 
 const todos = ref<Todo[]>([
   {
@@ -42,4 +51,8 @@ const todos = ref<Todo[]>([
 const meta = ref<Meta>({
   totalCount: 1200
 });
+
+const { user } = storeToRefs(useUserStore());
+// getCurrentUserData(user.value?.uid);
+
 </script>
