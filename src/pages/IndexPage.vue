@@ -7,23 +7,25 @@
       :meta="meta"
     />
     <div>
-      <login-button />
-      <div>
-        {{ user }}
+      <login-button v-if="!uid" />
+      <div v-else>
+        <logout-button />
+        <user-collections />
       </div>
     </div>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue';
+import { ref, watch } from 'vue';
 import type { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
 import LoginButton from 'src/components/atoms/login/LoginButton.vue';
+import LogoutButton from 'src/components/atoms/login/LogoutButton.vue';
+import UserCollections from 'src/components/organisms/UserCollections.vue';
 import { useUserStore } from 'src/stores/userStore';
-import { watch } from 'fs';
 import { storeToRefs } from 'pinia';
-// import { getCurrentUserData } from 'src/utlils/firestore/composables';
+import { getCurrentUserData } from 'src/utlils/firestore/composables';
 
 const todos = ref<Todo[]>([
   {
@@ -52,7 +54,6 @@ const meta = ref<Meta>({
   totalCount: 1200
 });
 
-const { user } = storeToRefs(useUserStore());
-// getCurrentUserData(user.value?.uid);
+const { uid } = storeToRefs(useUserStore());
 
 </script>

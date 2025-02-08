@@ -1,6 +1,6 @@
 import type { User } from 'firebase/auth';
 import { defineStore, acceptHMRUpdate } from 'pinia';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 export const useUserStore = defineStore('user', () => {
   const user = ref<User | null>(null);
@@ -9,7 +9,9 @@ export const useUserStore = defineStore('user', () => {
     user.value = newUser;
   }
 
-  return { user, setUser };
+  const uid = computed(() => user.value?.uid);
+
+  return { user, setUser, uid };
 });
 
 if (import.meta.hot) {
