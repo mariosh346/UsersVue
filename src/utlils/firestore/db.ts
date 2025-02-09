@@ -59,5 +59,5 @@ export function signinPopup() {
 }
 
 
-// export const itemsCollection = collection(db, 'collections')
-// export const usersCollection = collection(db, 'users')
+export const itemsCollection = collection(db, 'collections')
+export const usersCollection = collection(db, 'users')
