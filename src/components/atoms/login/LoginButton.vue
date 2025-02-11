@@ -10,7 +10,7 @@ import {
 import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 import { ref, onMounted } from 'vue';
 import { signinPopup } from 'src/utlils/firestore/db';
-import { getCurrentUserData, getItems } from 'src/utlils/firestore/composables';
+import { getUserData, getItems } from 'src/utlils/firestore/composables';
 
 
 // const googleAuthProvider = new GoogleAuthProvider()

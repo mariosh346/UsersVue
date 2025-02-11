@@ -7,13 +7,15 @@
         :collection="collection"
       />
     </q-list>
+    <NewUserCollection />
   </main>
 </template>
 <script setup lang="ts">
 import { useUserStore } from 'src/stores/userStore';
-import { getCurrentUserData } from 'src/utlils/firestore/composables';
+import { getUserData } from 'src/utlils/firestore/composables';
 import UserCollection from 'src/components/organisms/UserCollection.vue';
+import NewUserCollection from './NewUserCollection.vue';
 
 const userStore = useUserStore();
-const userData = getCurrentUserData(userStore?.uid);
+const userData = getUserData(userStore?.uid);
 </script>
