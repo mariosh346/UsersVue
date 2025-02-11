@@ -74,7 +74,10 @@ onMounted(() => {
       v-if="error"
       :error="error"
     /> -->
-    <q-btn @click="signinRedirect()">
+    <q-btn
+      icon="login"
+      @click="signinRedirect()"
+    >
       SignIn with Google
     </q-btn>
   </main>

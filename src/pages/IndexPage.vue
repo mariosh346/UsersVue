@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import type { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
 import LoginButton from 'src/components/atoms/login/LoginButton.vue';
@@ -25,7 +25,6 @@ import LogoutButton from 'src/components/atoms/login/LogoutButton.vue';
 import UserCollections from 'src/components/organisms/UserCollections.vue';
 import { useUserStore } from 'src/stores/userStore';
 import { storeToRefs } from 'pinia';
-import { getCurrentUserData } from 'src/utlils/firestore/composables';
 
 const todos = ref<Todo[]>([
   {
