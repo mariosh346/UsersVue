@@ -15,7 +15,7 @@
           Quasar App
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <UserButtons />
       </q-toolbar>
     </q-header>
 
@@ -48,6 +48,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import EssentialLink, { type EssentialLinkProps } from 'components/EssentialLink.vue';
+import UserButtons from 'src/components/mollecules/UserButtons.vue';
 
 const linksList: EssentialLinkProps[] = [
   {
