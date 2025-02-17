@@ -3,140 +3,159 @@
     class="q-gutter-md"
     @submit="onSubmit"
   >
-    <q-input
+    <BaseInput
       v-model="form.fullName"
-      filled
-      label="Ονοματεπώνυμο"
-      placeholder="Εισάγετε ονοματεπώνυμο..."
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      :label="FORM_LABELS.fullName"
+      :placeholder="PLACEHOLDERS.fullName"
+      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
     />
 
-    <q-input
+    <BaseInput
       v-model="form.address"
-      filled
-      label="Διεύθυνση"
-      placeholder="Εισάγετε διεύθυνση..."
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      :label="FORM_LABELS.address"
+      :placeholder="PLACEHOLDERS.address"
+      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
     />
 
-    <q-input
+    <BaseInput
       v-model="form.city"
-      filled
-      label="Πόλη / Περιοχή"
-      placeholder="Εισάγετε πόλη / περιοχή..."
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      :label="FORM_LABELS.city"
+      :placeholder="PLACEHOLDERS.city"
+      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
     />
 
-    <q-input
+    <BaseInput
       v-model="form.postalCode"
-      filled
-      label="Τ.Κ."
-      placeholder="Εισάγετε τ.κ..."
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      :label="FORM_LABELS.postalCode"
+      :placeholder="PLACEHOLDERS.postalCode"
+      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
     />
 
-    <q-input
+    <BaseInput
       v-model="form.phone"
-      filled
-      label="Τηλέφωνο"
-      placeholder="Εισάγετε τηλέφωνο..."
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      :label="FORM_LABELS.phone"
+      :placeholder="PLACEHOLDERS.phone"
+      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
     />
 
-    <q-input
+    <BaseInput
       v-model="form.orderNumber"
-      filled
-      label="Αρ. Παραγγελίας / Κλειδί"
-      placeholder="Εισάγετε αριθμό παραγγελίας / κλειδί..."
+      :label="FORM_LABELS.orderNumber"
+      :placeholder="PLACEHOLDERS.orderNumber"
     />
 
-    <q-input
+    <BaseInput
       v-model="form.cashOnDelivery"
-      filled
-      label="Αντικαταβολή / Είσπραξη"
-      placeholder="Εισάγετε αντικαταβολή / είσπραξη..."
+      :label="FORM_LABELS.cashOnDelivery"
+      :placeholder="PLACEHOLDERS.cashOnDelivery"
     />
 
-    <q-input
+    <BaseInput
       v-model="form.notes"
-      filled
-      label="Παρατηρήσεις"
+      :label="FORM_LABELS.notes"
       type="textarea"
     />
 
-    <q-input
+    <BaseInput
       v-model="form.weight"
-      filled
-      label="Βάρος"
-      placeholder="Εισάγετε βάρος..."
+      :label="FORM_LABELS.weight"
+      :placeholder="PLACEHOLDERS.weight"
     />
 
     <div class="row q-gutter-md">
-      <q-input
+      <BaseInput
         v-model="form.height"
-        filled
-        label="Ύψος"
-        placeholder="Εισάγετε ύψος..."
+        :label="FORM_LABELS.height"
+        :placeholder="PLACEHOLDERS.height"
         class="col"
       />
-      <q-input
+      <BaseInput
         v-model="form.length"
-        filled
-        label="Μήκος"
-        placeholder="Εισάγετε μήκος..."
+        :label="FORM_LABELS.length"
+        :placeholder="PLACEHOLDERS.length"
         class="col"
       />
-      <q-input
+      <BaseInput
         v-model="form.width"
-        filled
-        label="Πλάτος"
-        placeholder="Εισάγετε πλάτος..."
+        :label="FORM_LABELS.width"
+        :placeholder="PLACEHOLDERS.width"
         class="col"
       />
     </div>
 
-
-    <q-checkbox
-      v-model="form.pickupFromStore"
-      label="Παραλαβή από το κατάστημα"
+    <BaseSelect
+      v-model="form.protocolNumber"
+      :options="protocolNumberOptions"
+      :label="SELECT_LABELS.protocolNumber"
     />
-    <q-checkbox
+
+    <BaseSelect
       v-model="form.urgentDelivery"
-      label="Επείγουσα Παράδοση"
-    />
-    <q-checkbox
-      v-model="form.deliveryPickup"
-      label="Παράδοση - Παραλαβή"
-    />
-    <q-checkbox
-      v-model="form.sameDay"
-      label="Αυθημερόν"
-    />
-    <q-checkbox
-      v-model="form.protocolNumberCheckbox"
-      label="Αριθμός Πρωτοκόλλου"
+      :options="urgentDeliveryOptions"
+      :label="SELECT_LABELS.urgentDelivery"
     />
 
-    <q-btn
+    <BaseSelect
+      v-model="form.deliveryPickup"
+      :options="deliveryPickupOptions"
+      :label="SELECT_LABELS.deliveryPickup"
+    />
+
+    <BaseSelect
+      v-model="form.sameDay"
+      :options="sameDayOptions"
+      :label="SELECT_LABELS.sameDay"
+    />
+
+    <BaseSelect
+      v-model="form.pickupLocation"
+      :options="pickupLocationOptions"
+      :label="SELECT_LABELS.pickupLocation"
+    />
+
+    <BaseBtn
       icon="add"
       :loading="loading"
-      round
       type="submit"
+      label="Προσθήκη"
     />
   </q-form>
 </template>
+
 <script setup lang="ts">
 import { addDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { useUserStore } from 'src/stores/userStore';
 import { getUserDoc } from 'src/utlils/firestore/composables';
 import { itemsCollection } from 'src/utlils/firestore/db';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import BaseInput from '../atoms/BaseInput.vue';
+import BaseSelect from '../atoms/BaseSelect.vue';
+import BaseBtn from '../atoms/BaseBtn.vue';
+import {
+  FORM_LABELS,
+  PLACEHOLDERS,
+  SELECT_LABELS,
+  PICKUP_LOCATION,
+  URGENT_DELIVERY,
+  DELIVERY_PICKUP,
+  SAME_DAY,
+  PROTOCOL_NUMBER,
+  objectToOptions,
+  VALIDATION_MESSAGES
+} from 'src/constants/strings';
+
+const urgentDeliveryOptions = computed(() => objectToOptions(URGENT_DELIVERY));
+const deliveryPickupOptions = computed(() => objectToOptions(DELIVERY_PICKUP));
+const sameDayOptions = computed(() => objectToOptions(SAME_DAY));
+const pickupLocationOptions = computed(() => objectToOptions(PICKUP_LOCATION));
+const protocolNumberOptions = computed(() => objectToOptions(PROTOCOL_NUMBER));
+
 const emptyForm = {
   fullName: '',
   address: '',
   city: '',
   postalCode: '',
-  protocolNumber: '',
+  protocolNumber: PROTOCOL_NUMBER.none.value,
   phone: '',
   orderNumber: '',
   cashOnDelivery: '',
@@ -146,11 +165,10 @@ const emptyForm = {
   length: '',
   width: '',
   voucher: '',
-  pickupFromStore: false,
-  urgentDelivery: false,
-  deliveryPickup: false,
-  sameDay: false,
-  protocolNumberCheckbox: false,
+  urgentDelivery: URGENT_DELIVERY.normal.value,
+  deliveryPickup: DELIVERY_PICKUP.simple.value,
+  sameDay: SAME_DAY.normal.value,
+  pickupLocation: PICKUP_LOCATION.delivery.value,
 }
 const form = ref(emptyForm);
 
