@@ -7,35 +7,41 @@
       v-model="form.fullName"
       :label="FORM_LABELS.fullName"
       :placeholder="PLACEHOLDERS.fullName"
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      autocomplete="name"
+      :rules="[required]"
     />
 
     <BaseInput
       v-model="form.address"
       :label="FORM_LABELS.address"
       :placeholder="PLACEHOLDERS.address"
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      autocomplete="address"
+      :rules="[required]"
     />
 
     <BaseInput
       v-model="form.city"
       :label="FORM_LABELS.city"
       :placeholder="PLACEHOLDERS.city"
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      autocomplete="address-level2"
+      :rules="[required]"
     />
 
     <BaseInput
       v-model="form.postalCode"
       :label="FORM_LABELS.postalCode"
       :placeholder="PLACEHOLDERS.postalCode"
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      autocomplete="postal-code"
+      :rules="[required]"
     />
 
     <BaseInput
       v-model="form.phone"
       :label="FORM_LABELS.phone"
       :placeholder="PLACEHOLDERS.phone"
-      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
+      type="tel"
+      autocomplete="tel"
+      :rules="[required]"
     />
 
     <BaseInput
@@ -62,7 +68,7 @@
       :placeholder="PLACEHOLDERS.weight"
     />
 
-    <div class="row q-gutter-md">
+    <div class="row q-col-gutter-md q-y-md">
       <BaseInput
         v-model="form.height"
         :label="FORM_LABELS.height"
@@ -123,6 +129,7 @@
 </template>
 
 <script setup lang="ts">
+import { required } from 'src/constants/validationRules';
 import { addDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { useUserStore } from 'src/stores/userStore';
 import { getUserDoc } from 'src/utlils/firestore/composables';
@@ -142,6 +149,7 @@ import {
   PROTOCOL_NUMBER,
   objectToOptions
 } from 'src/constants/strings';
+import type { UserCollectionForm } from 'src/types/forms';
 
 const urgentDeliveryOptions = computed(() => objectToOptions(URGENT_DELIVERY));
 const deliveryPickupOptions = computed(() => objectToOptions(DELIVERY_PICKUP));
@@ -149,7 +157,7 @@ const sameDayOptions = computed(() => objectToOptions(SAME_DAY));
 const pickupLocationOptions = computed(() => objectToOptions(PICKUP_LOCATION));
 const protocolNumberOptions = computed(() => objectToOptions(PROTOCOL_NUMBER));
 
-const emptyForm = {
+const emptyForm: UserCollectionForm = {
   fullName: '',
   address: '',
   city: '',
@@ -169,7 +177,7 @@ const emptyForm = {
   sameDay: SAME_DAY.normal.value,
   pickupLocation: PICKUP_LOCATION.delivery.value,
 }
-const form = ref(emptyForm);
+const form = ref<UserCollectionForm>(emptyForm);
 
 const loading = ref(false);
 const userStore = useUserStore();
