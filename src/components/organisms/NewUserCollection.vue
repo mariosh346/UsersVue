@@ -7,35 +7,35 @@
       v-model="form.fullName"
       :label="FORM_LABELS.fullName"
       :placeholder="PLACEHOLDERS.fullName"
-      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
+      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
     />
 
     <BaseInput
       v-model="form.address"
       :label="FORM_LABELS.address"
       :placeholder="PLACEHOLDERS.address"
-      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
+      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
     />
 
     <BaseInput
       v-model="form.city"
       :label="FORM_LABELS.city"
       :placeholder="PLACEHOLDERS.city"
-      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
+      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
     />
 
     <BaseInput
       v-model="form.postalCode"
       :label="FORM_LABELS.postalCode"
       :placeholder="PLACEHOLDERS.postalCode"
-      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
+      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
     />
 
     <BaseInput
       v-model="form.phone"
       :label="FORM_LABELS.phone"
       :placeholder="PLACEHOLDERS.phone"
-      :rules="[val => !!val || VALIDATION_MESSAGES.required]"
+      :rules="[val => !!val || 'Το πεδίο είναι υποχρεωτικό']"
     />
 
     <BaseInput
@@ -140,8 +140,7 @@ import {
   DELIVERY_PICKUP,
   SAME_DAY,
   PROTOCOL_NUMBER,
-  objectToOptions,
-  VALIDATION_MESSAGES
+  objectToOptions
 } from 'src/constants/strings';
 
 const urgentDeliveryOptions = computed(() => objectToOptions(URGENT_DELIVERY));

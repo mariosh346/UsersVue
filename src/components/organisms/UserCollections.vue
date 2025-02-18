@@ -9,7 +9,7 @@
       :pagination="pagination"
       no-data-label="No orders found for this user."
     >
-      <template #body-cell-pickupFromStore="props">
+      <!-- <template #body-cell-pickupFromStore="props">
         <ServiceStatus
           :props="props"
           :active="props.row.pickupFromStore"
@@ -42,7 +42,7 @@
           :props="props"
           :active="props.row.protocolNumberCheckbox"
         />
-      </template>
+      </template> -->
 
       <template #body-cell-dimensions="props">
         <q-td
@@ -53,6 +53,11 @@
           </template>
         </q-td>
       </template>
+      <template #body-cell-dateCreated="props">
+        <q-td :props="props">
+          {{ new Date(props.row.dateCreated.seconds * 1000).toISOString() }}
+        </q-td>
+      </template>
     </q-table>
     <NewUserCollection />
   </main>
@@ -61,11 +66,13 @@
 import { useUserStore } from 'src/stores/userStore';
 import { getUserItems } from 'src/utlils/firestore/composables';
 import NewUserCollection from './NewUserCollection.vue';
-import ServiceStatus from 'src/components/atoms/ServiceStatus.vue';
 import { ref } from 'vue';
 import type { QTableProps } from 'quasar';
 
 const userStore = useUserStore();
+if (!userStore.uid) {
+  throw new Error("User is not logged in");
+}
 const userData = getUserItems(userStore.uid);
 
 const columns: QTableProps["columns"] = [
@@ -84,6 +91,7 @@ const columns: QTableProps["columns"] = [
   { name: "deliveryPickup", label: "Παράδοση - Παραλαβή", field: "deliveryPickup", align: "center" },
   { name: "sameDay", label: "Αυθημερόν", field: "sameDay", align: "center" },
   { name: "protocolNumberCheckbox", label: "Αρ. Πρωτοκόλλου", field: "protocolNumberCheckbox", align: "center" },
+  { name: "dateCreated", label: "Ημερομηνία", field: "dateCreated", align: "left", sortable: true },
 ];
 
 const pagination = ref({

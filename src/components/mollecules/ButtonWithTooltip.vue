@@ -18,7 +18,9 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import BaseBtn from './atoms/BaseBtn.vue';
+import { defineProps } from 'vue';
+import BaseBtn from 'components/atoms/BaseBtn.vue';
+
 const showTooltip = ref(true);
 defineProps<{
   buttonText: string;

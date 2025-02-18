@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { QBtnProps } from 'quasar';
+import type { QBtnProps } from 'quasar';
 
 defineProps<QBtnProps>();
 
