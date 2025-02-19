@@ -7,7 +7,9 @@
     :color="color"
     v-bind="$attrs"
     @click="$emit('click', $event)"
-  />
+  >
+    <slot />
+  </q-btn>
 </template>
 
 <script setup lang="ts">

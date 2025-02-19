@@ -14,7 +14,7 @@ import { computed } from 'vue';
 import type { SelectOption } from 'src/types/forms';
 import type { QSelectProps } from 'quasar';
 
-const props = defineProps<QSelectProps & {
+const props = defineProps<Omit<QSelectProps, 'onUpdate:modelValue'> & {
   modelValue: string;
   options: Array<SelectOption>;
 }>();

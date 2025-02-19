@@ -1,7 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import type { Auth} from 'firebase/auth';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth'
-import { ref } from 'vue';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
 import { getFirestore, collection } from 'firebase/firestore'
 const firebaseConfig = {
   apiKey: "AIzaSyByqnFhzkTWWLjWczPN41c-5IbfJn3hRuI",
@@ -43,6 +41,7 @@ export function signinPopup() {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
+
         // IdP data available using getAdditionalUserInfo(result)
         console.log('signinRedirect result', user, token)
       }).catch((error) => {
@@ -56,6 +55,24 @@ export function signinPopup() {
         console.error('Failed signinRedirect error: ', errorCode, errorMessage, email, credential)
         throw error;
       });
+}
+
+export function signinWithEmail(email: string, password: string) {
+  return signInWithEmailAndPassword(authFire, email, password)
+}
+
+export function signupWithEmail(email: string, password: string) {
+  return createUserWithEmailAndPassword(authFire, email, password)
+  // .then((userCredential) => {
+  //   // Signed in
+  //   const user = userCredential.user;
+  //   // ...
+  // })
+  // .catch((error) => {
+  //   const errorCode = error.code;
+  //   const errorMessage = error.message;
+  //   // ..
+  // })
 }
 
 

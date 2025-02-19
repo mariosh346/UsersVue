@@ -68,7 +68,7 @@
       :placeholder="PLACEHOLDERS.weight"
     />
 
-    <div class="row q-col-gutter-md q-y-md">
+    <div class="row q-col-gutter-md q-py-md q-pl-md">
       <BaseInput
         v-model="form.height"
         :label="FORM_LABELS.height"
