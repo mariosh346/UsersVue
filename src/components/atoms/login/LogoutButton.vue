@@ -1,6 +1,11 @@
 <template>
-  <base-btn @click="signout">
-    SignOut
+  <base-btn
+    flat
+    unelevated
+    color="secondary"
+    @click="signout"
+  >
+    {{ $t('Αποσυνδεση') }}
   </base-btn>
 </template>
 <script setup lang="ts">
