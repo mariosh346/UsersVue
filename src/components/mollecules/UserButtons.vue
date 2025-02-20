@@ -6,16 +6,16 @@
     </BaseBtn>
   </template>
   <div v-else>
-    <logout-button />
+    <user-dropdown />
   </div>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
 import LoginButton from 'src/components/atoms/login/LoginButton.vue';
-import LogoutButton from 'src/components/atoms/login/LogoutButton.vue';
 import { useUserStore } from 'src/stores/userStore';
 import BaseBtn from '../atoms/BaseBtn.vue';
+import UserDropdown from 'src/components/atoms/UserDropdown.vue';
 
 const { uid } = storeToRefs(useUserStore());
 </script>

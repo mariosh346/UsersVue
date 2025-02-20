@@ -1,12 +1,27 @@
 <template>
-  <q-page padding class="flex flex-center">
+  <q-page
+    padding
+    class="flex flex-center"
+  >
     <q-card class="auth-card">
-      <q-tabs v-model="tab" class="text-primary">
-        <q-tab name="login" label="Login" />
-        <q-tab name="signup" label="Sign up" />
+      <q-tabs
+        v-model="tab"
+        class="text-primary"
+      >
+        <q-tab
+          name="login"
+          label="Login"
+        />
+        <q-tab
+          name="signup"
+          label="Sign up"
+        />
       </q-tabs>
 
-      <q-tab-panels v-model="tab" animated>
+      <q-tab-panels
+        v-model="tab"
+        animated
+      >
         <q-tab-panel name="login">
           <login-form />
         </q-tab-panel>
@@ -19,12 +34,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watchEffect } from 'vue';
+import { ref, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 import { useUserStore } from 'src/stores/userStore';
 import LoginForm from 'src/components/organisms/auth/LoginForm.vue';
 import SignupForm from 'src/components/organisms/auth/SignupForm.vue';
-import { watch } from 'fs';
 
 const tab = ref('login');
 
