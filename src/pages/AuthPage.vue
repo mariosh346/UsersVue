@@ -19,11 +19,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, watchEffect } from 'vue';
+import { useRouter } from 'vue-router';
+import { useUserStore } from 'src/stores/userStore';
 import LoginForm from 'src/components/organisms/auth/LoginForm.vue';
 import SignupForm from 'src/components/organisms/auth/SignupForm.vue';
+import { watch } from 'fs';
 
 const tab = ref('login');
+
+const router = useRouter();
+const userStore = useUserStore();
+
+watchEffect(() => {
+  if (userStore.uid) {
+    router.push('/');
+  }
+});
 </script>
 
 <style scoped>

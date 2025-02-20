@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          Users App
         </q-toolbar-title>
 
         <UserButtons />

@@ -16,7 +16,6 @@
     />
     <base-btn
       class="q-mt-lg full-width"
-      color="primary"
       label="Login"
       type="submit"
       :loading="loading"

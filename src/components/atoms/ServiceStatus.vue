@@ -10,8 +10,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-const props = defineProps({
-  props: Object,
+defineProps({
   active: Boolean
 });
 </script>

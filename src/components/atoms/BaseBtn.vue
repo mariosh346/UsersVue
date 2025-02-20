@@ -4,7 +4,7 @@
     :loading="loading"
     :label="label"
     :type="type"
-    :color="color"
+    :color="color || 'primary'"
     v-bind="$attrs"
     @click="$emit('click', $event)"
   >

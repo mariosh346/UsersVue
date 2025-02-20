@@ -1,4 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router';
+import { requireNoAuth } from 'src/utlils/guards/authGuard';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -9,7 +10,11 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/auth',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/AuthPage.vue') }],
+    children: [{
+      path: '',
+      component: () => import('pages/AuthPage.vue'),
+      beforeEnter: requireNoAuth
+    }],
   },
 
   // Always leave this as last one,

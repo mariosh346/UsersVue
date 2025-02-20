@@ -1,16 +1,15 @@
 import type { User } from 'firebase/auth';
 import { defineStore, acceptHMRUpdate } from 'pinia';
-import { getUserData } from 'src/utlils/firestore/composables';
 import { computed, ref } from 'vue';
 
 export const useUserStore = defineStore('user', () => {
-  const uid = ref<User["uid"] | null>(null);
+  const user = ref<User | null>(null);
+  const uid = computed(() => user.value?.uid);
 
-  function setUserId(newUid: typeof uid['value']) {
-    uid.value = newUid;
+  function setUser(newUser: User | null) {
+    user.value = newUser;
   }
-  const user = computed(() => uid.value && getUserData(uid.value));
-  return { user, setUserId, uid };
+  return { user, setUser, uid };
 });
 
 if (import.meta.hot) {

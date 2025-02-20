@@ -1,12 +1,4 @@
 <script setup lang="ts">
-import {
-  getRedirectResult,
-  signInWithRedirect,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-  getAuth,
-} from 'firebase/auth'
 import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 import { ref, onMounted } from 'vue';
 import { signinPopup } from 'src/utlils/firestore/db';

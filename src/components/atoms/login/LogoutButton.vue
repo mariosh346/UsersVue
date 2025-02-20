@@ -9,7 +9,7 @@ import { useUserStore } from 'src/stores/userStore';
 import { authFire } from 'src/utlils/firestore/db';
 const signout = () => {
   signOut(authFire).then(() => {
-    useUserStore().setUserId(null);
+    useUserStore().setUser(null);
   }).catch((error) => {
     console.error('Failed signout', error);
   });
