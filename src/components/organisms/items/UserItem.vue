@@ -120,24 +120,21 @@
     />
 
     <BaseBtn
-      icon="add"
       :loading="loading"
       type="submit"
-      label="Προσθήκη"
+      :label="buttonLabel"
+    />
+    <ErrorBanner
+      v-if="error"
+      :message="error"
     />
   </q-form>
 </template>
 
 <script setup lang="ts">
 import { required } from 'src/constants/validationRules';
-import { addDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
-import { useUserStore } from 'src/stores/userStore';
-import { getUserDoc } from 'src/utlils/firestore/composables';
-import { itemsCollection } from 'src/utlils/firestore/db';
-import { ref, computed } from 'vue';
-import BaseInput from '../atoms/BaseInput.vue';
-import BaseSelect from '../atoms/BaseSelect.vue';
-import BaseBtn from '../atoms/BaseBtn.vue';
+import type { PropType } from 'vue';
+import { ref, computed, watch, toRefs } from 'vue';
 import {
   FORM_LABELS,
   PLACEHOLDERS,
@@ -149,7 +146,28 @@ import {
   PROTOCOL_NUMBER,
   objectToOptions
 } from 'src/constants/strings';
-import type { UserCollectionForm } from 'src/types/forms';
+import { userCollectionFormDefault, type UserCollectionForm } from 'src/types/forms';
+import BaseInput from 'src/components/atoms/BaseInput.vue';
+import BaseSelect from 'src/components/atoms/BaseSelect.vue';
+import BaseBtn from 'src/components/atoms/BaseBtn.vue';
+import ErrorBanner from 'src/components/atoms/ErrorBanner.vue';
+
+const props = defineProps({
+  item: {
+    type: Object as PropType<UserCollectionForm>,
+    default: () => ({...userCollectionFormDefault})
+  },
+  loading: {type: Boolean, required: true },
+  error: {type: String, required: true },
+  buttonLabel: {type: String, required: true }
+})
+const emit = defineEmits<{
+  (e: 'submit', value: typeof props["item"]): void;
+}>();
+const {item} = toRefs(props);
+watch(item, (newVal) => {
+  form.value = {...newVal};
+}, { deep: true });
 
 const urgentDeliveryOptions = computed(() => objectToOptions(URGENT_DELIVERY));
 const deliveryPickupOptions = computed(() => objectToOptions(DELIVERY_PICKUP));
@@ -157,53 +175,10 @@ const sameDayOptions = computed(() => objectToOptions(SAME_DAY));
 const pickupLocationOptions = computed(() => objectToOptions(PICKUP_LOCATION));
 const protocolNumberOptions = computed(() => objectToOptions(PROTOCOL_NUMBER));
 
-const emptyForm: UserCollectionForm = {
-  fullName: '',
-  address: '',
-  city: '',
-  postalCode: '',
-  protocolNumber: PROTOCOL_NUMBER.none.value,
-  phone: '',
-  orderNumber: '',
-  cashOnDelivery: '',
-  notes: '',
-  weight: '',
-  height: '',
-  length: '',
-  width: '',
-  voucher: '',
-  urgentDelivery: URGENT_DELIVERY.normal.value,
-  deliveryPickup: DELIVERY_PICKUP.simple.value,
-  sameDay: SAME_DAY.normal.value,
-  pickupLocation: PICKUP_LOCATION.delivery.value,
-}
-const form = ref<UserCollectionForm>(emptyForm);
+const form = ref<UserCollectionForm>({...item.value});
 
-const loading = ref(false);
-const userStore = useUserStore();
-const addCollection = async () => {
-  try {
-    loading.value = true;
-    const refCollection = await addDoc(itemsCollection, {
-          ...form.value,
-          userId: userStore?.uid,
-          dateCreated: serverTimestamp(),
-          dateUpdated: serverTimestamp(),
-          })
+const onSubmit = () => {
+  emit('submit', form.value);
+}
 
-    if (!userStore?.user?.value || !userStore.uid) return;
-    await updateDoc(getUserDoc(userStore?.uid), {
-      dateUpdated: serverTimestamp(),
-      collections: [...userStore.user.value.collections, refCollection.id]
-    })
-  } catch (error) {
-    console.error('Error adding document: ', error);
-  } finally {
-    loading.value = false;
-    form.value = emptyForm;
-  }
-}
-const onSubmit = async () => {
-  await addCollection();
-}
 </script>

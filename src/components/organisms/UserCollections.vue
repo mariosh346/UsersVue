@@ -58,22 +58,42 @@
           {{ new Date(props.row.dateCreated.seconds * 1000).toISOString() }}
         </q-td>
       </template>
+      <template #body-cell-actions="props">
+        <q-td :props="props">
+          <base-btn
+            color="primary"
+            label="Edit"
+            @click="setSelectedItem(props.row)"
+          />
+        </q-td>
+      </template>
     </q-table>
-    <NewUserCollection />
+    <NewUserItem />
+    <UpdateUserItem
+      v-if="selectedItem"
+      :item="selectedItem"
+    />
   </main>
 </template>
 <script setup lang="ts">
 import { useUserStore } from 'src/stores/userStore';
 import { getUserItems } from 'src/utlils/firestore/composables';
-import NewUserCollection from './NewUserCollection.vue';
 import { ref } from 'vue';
 import type { QTableProps } from 'quasar';
+import NewUserItem from './items/NewUserItem.vue';
+import UpdateUserItem from './items/UpdateUserItem.vue';
+import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 
 const userStore = useUserStore();
 if (!userStore.uid) {
   throw new Error("User is not logged in");
 }
 const userData = getUserItems(userStore.uid);
+
+const selectedItem = ref(undefined);
+const setSelectedItem = (item: typeof selectedItem['value']) => {
+  selectedItem.value = item;
+};
 
 const columns: QTableProps["columns"] = [
   { name: "id", label: "ID", field: "id", align: "left", sortable: true },
@@ -92,6 +112,7 @@ const columns: QTableProps["columns"] = [
   { name: "sameDay", label: "Αυθημερόν", field: "sameDay", align: "center" },
   { name: "protocolNumberCheckbox", label: "Αρ. Πρωτοκόλλου", field: "protocolNumberCheckbox", align: "center" },
   { name: "dateCreated", label: "Ημερομηνία", field: "dateCreated", align: "left", sortable: true },
+  { name: "actions", label: "Ενέργειες", field: "actions", align: "center" },
 ];
 
 const pagination = ref({

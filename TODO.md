@@ -6,7 +6,8 @@
 6. fix v-bind="attrs"
 7. move user data to firestore?
 8. how to determine if a user is admin
-9. editable table elements
+9. fix editable table elements
+10. voucher?
  
 DONE
 add login with email/uname

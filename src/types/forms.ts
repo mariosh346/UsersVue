@@ -1,4 +1,4 @@
-import type {
+import {
   PROTOCOL_NUMBER,
   URGENT_DELIVERY,
   DELIVERY_PICKUP,
@@ -20,26 +20,29 @@ export interface SelectOption {
   label: string;
 }
 
-export interface UserCollectionForm {
-  fullName: string;
-  address: string;
-  city: string;
-  postalCode: string;
-  protocolNumber: ProtocolNumberType;
-  phone: string;
-  orderNumber: string;
-  cashOnDelivery: string;
-  notes: string;
-  weight: string;
-  height: string;
-  length: string;
-  width: string;
-  voucher: string;
-  urgentDelivery: UrgentDeliveryType;
-  deliveryPickup: DeliveryPickupType;
-  sameDay: SameDayType;
-  pickupLocation: PickupLocationType;
+export const userCollectionFormDefault = {
+  id: undefined as string | undefined,
+  fullName: '', 
+  address: '',
+  city: '',
+  postalCode: '',
+  protocolNumber: PROTOCOL_NUMBER.none.value as ProtocolNumberType,
+  phone: '',
+  orderNumber: '',
+  cashOnDelivery: '',
+  notes: '',
+  weight: '',
+  height: '',
+  length: '',
+  width: '',
+  voucher: '',
+  urgentDelivery: URGENT_DELIVERY.normal.value as UrgentDeliveryType,
+  deliveryPickup: DELIVERY_PICKUP.simple.value as DeliveryPickupType,
+  sameDay: SAME_DAY.normal.value as SameDayType,
+  pickupLocation: PICKUP_LOCATION.delivery.value as PickupLocationType,
 }
+
+export type UserCollectionForm = typeof userCollectionFormDefault;
 
 export interface UserCollectionDocument extends UserCollectionForm {
   userId: string;
