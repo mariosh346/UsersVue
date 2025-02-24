@@ -63,7 +63,7 @@
           <base-btn
             color="primary"
             label="Edit"
-            @click="setSelectedItem(props.row)"
+            @click="setSelectedItem(props.key)"
           />
         </q-td>
       </template>
@@ -90,8 +90,12 @@ if (!userStore.uid) {
 }
 const userData = getUserItems(userStore.uid);
 
-const selectedItem = ref(undefined);
-const setSelectedItem = (item: typeof selectedItem['value']) => {
+const selectedItem = ref<typeof userData["value"][0] | undefined>(undefined);
+const setSelectedItem = (key: string) => {
+  const item = userData.value.find((item) => item.id === key);
+  if (!item) {
+    throw new Error("Item not found");
+  }
   selectedItem.value = item;
 };
 

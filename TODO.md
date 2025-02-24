@@ -8,6 +8,7 @@
 8. how to determine if a user is admin
 9. move editable table elements to another page
 10. voucher?
+11. add state collection for every item
  
 DONE
 add login with email/uname
