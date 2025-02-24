@@ -2,40 +2,53 @@
   <h2>
     {{ $t('Επεξεργασία Καταχώρησης') }}
   </h2>
-  <UserItem :item="form" @submit="onSubmit"
-  :error="error" :loading="loading" :button-label="$t('Επεξεργασία Καταχώρησης')" />
+  <UserItem
+    :item="item"
+    :error="error"
+    :loading="loading"
+    :button-label="$t('Επεξεργασία Καταχώρησης')"
+    @submit="onSubmit"
+  >
+    <!-- <BaseInput
+      :model-value="item.stateCollection"
+      :label="FORM_LABELS.orderNumber"
+      :placeholder="PLACEHOLDERS.orderNumber"
+    /> -->
+  </UserItem>
 </template>
 
 <script setup lang="ts">
 import { serverTimestamp, updateDoc } from 'firebase/firestore';
-import { useUserStore } from 'src/stores/userStore';
 import { getItemDoc } from 'src/utlils/firestore/composables';
 import type { PropType } from 'vue';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { userCollectionFormDefault, type UserCollectionForm } from 'src/types/forms';
 import { useI18n } from 'vue-i18n';
 import UserItem from './UserItem.vue';
+import {
+  FORM_LABELS,
+  PLACEHOLDERS,
+} from 'src/constants/strings';
 
-const props = defineProps({
+defineProps({
   item: {
     type: Object as PropType<UserCollectionForm>,
     default: () => ({...userCollectionFormDefault})
   }
 })
 
-const form = ref<UserCollectionForm>({...props.item});
-
 const loading = ref(false);
 const error = ref('');
-const userStore = useUserStore();
 const { t } = useI18n();
-const addCollection = async () => {
+const onSubmit = async (form: UserCollectionForm) => {
   error.value = '';
   try {
     loading.value = true;
-    if (!form.value?.id) return;
-    await updateDoc(getItemDoc(form.value.id), {
-      ...form.value,
+    if (!form?.id) {
+      throw new Error('No id provided');
+    }
+    await updateDoc(getItemDoc(form.id), {
+      ...form,
       dateUpdated: serverTimestamp(),
     })
     // if (!userStore?.user?.value || !userStore.uid) return;
@@ -48,10 +61,6 @@ const addCollection = async () => {
     error.value = t('Προέκυψε σφάλμα κατά την προσθήκη της συλλογή');
   } finally {
     loading.value = false;
-    form.value = {...userCollectionFormDefault};
   }
-}
-const onSubmit = async () => {
-  await addCollection();
 }
 </script>

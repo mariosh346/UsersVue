@@ -17,9 +17,6 @@ importers:
       firebase:
         specifier: ^11.2.0
         version: 11.2.0
-      firebaseui:
-        specifier: ^6.1.0
-        version: 6.1.0(firebase@11.2.0)
       pinia:
         specifier: ^2.0.11
         version: 2.3.1(typescript@5.5.4)(vue@3.5.13(typescript@5.5.4))
@@ -87,9 +84,6 @@ importers:
       vite-plugin-checker:
         specifier: ^0.8.0
         version: 0.8.0(eslint@9.19.0)(optionator@0.9.4)(typescript@5.5.4)(vite@5.4.14(@types/node@20.17.17)(sass-embedded@1.83.4)(terser@5.38.0))(vue-tsc@2.2.0(typescript@5.5.4))
-      vite-plugin-vue-setup-extend:
-        specifier: ^0.4.0
-        version: 0.4.0(vite@5.4.14(@types/node@20.17.17)(sass-embedded@1.83.4)(terser@5.38.0))
       vitest:
         specifier: ^2.0.5
         version: 2.1.9(@types/node@20.17.17)(happy-dom@15.11.7)(sass-embedded@1.83.4)(terser@5.38.0)
@@ -2357,9 +2351,6 @@ packages:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
 
-  dialog-polyfill@0.4.10:
-    resolution: {integrity: sha512-j5yGMkP8T00UFgyO+78OxiN5vC5dzRQF3BEio+LhNvDbyfxWBsi3sfPArDm54VloaJwy2hm3erEiDWqHRC8rzw==}
-
   dir-glob@3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
@@ -2693,11 +2684,6 @@ packages:
 
   firebase@11.2.0:
     resolution: {integrity: sha512-ztwPhBLAZMVNZjBeQzzTM4rk2rsRXmdFYcnvjAXh+StbiFVshHKaPO9VRGMUzF48du4Mkz6jN1wkmYCuUJPxLA==}
-
-  firebaseui@6.1.0:
-    resolution: {integrity: sha512-5WiVYVxPGMANuZKxg6KLyU1tyqIsbqf/59Zm4HrdFYwPtM5lxxB0THvgaIk4ix+hCgF0qmY89sKiktcifKzGIA==}
-    peerDependencies:
-      firebase: ^9.1.3 || ^10.0.0
 
   flat-cache@4.0.1:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
@@ -3270,9 +3256,6 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  magic-string@0.25.9:
-    resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
-
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -3286,10 +3269,6 @@ packages:
 
   map-stream@0.1.0:
     resolution: {integrity: sha512-CkYQrPYZfWnu/DAmVCpTSX/xHpKZ80eKh2lAkyA6AJTef6bW+6JpbQZN5rofum7da+SyN1bi5ctTm+lTfcCW3g==}
-
-  material-design-lite@1.3.0:
-    resolution: {integrity: sha512-ao76b0bqSTKcEMt7Pui+J/S3eVF0b3GWfuKUwfe2lP5DKlLZOwBq37e0/bXEzxrw7/SuHAuYAdoCwY6mAYhrsg==}
-    engines: {node: '>=0.12.0'}
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -4084,10 +4063,6 @@ packages:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
 
-  sourcemap-codec@1.4.8:
-    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
-    deprecated: Please use @jridgewell/sourcemap-codec instead
-
   spawn-wrap@2.0.0:
     resolution: {integrity: sha512-EeajNjfN9zMnULLwhZZQU3GWBoFNkbngTUPfaawT4RkMiviTxcX0qfhVbGey39mfctfDHkWtuecgQ8NJcyQWHg==}
     engines: {node: '>=8'}
@@ -4493,11 +4468,6 @@ packages:
     resolution: {integrity: sha512-Tg9zDmm/u4SdEDFbEWHBz7mmFe7jhLRmArA2XCmw5yydEFCARU9r4TxqFFnBFWCL63D9A7XA7VELulOO5T5o/g==}
     peerDependencies:
       vite: '>=2.9.1 <= 5'
-
-  vite-plugin-vue-setup-extend@0.4.0:
-    resolution: {integrity: sha512-WMbjPCui75fboFoUTHhdbXzu4Y/bJMv5N9QT9a7do3wNMNHHqrk+Tn2jrSJU0LS5fGl/EG+FEDBYVUeWIkDqXQ==}
-    peerDependencies:
-      vite: '>=2.0.0'
 
   vite-tsconfig-paths@4.3.2:
     resolution: {integrity: sha512-0Vd/a6po6Q+86rPlntHye7F31zA2URZMbH8M3saAZ/xR9QoGN/L21bxEGfXdWmFdNkqPpRdxFT7nmNe12e9/uA==}
@@ -7388,8 +7358,6 @@ snapshots:
 
   destroy@1.2.0: {}
 
-  dialog-polyfill@0.4.10: {}
-
   dir-glob@3.0.1:
     dependencies:
       path-type: 4.0.0
@@ -7876,12 +7844,6 @@ snapshots:
       '@firebase/vertexai': 1.0.3(@firebase/app-types@0.9.3)(@firebase/app@0.10.18)
     transitivePeerDependencies:
       - '@react-native-async-storage/async-storage'
-
-  firebaseui@6.1.0(firebase@11.2.0):
-    dependencies:
-      dialog-polyfill: 0.4.10
-      firebase: 11.2.0
-      material-design-lite: 1.3.0
 
   flat-cache@4.0.1:
     dependencies:
@@ -8438,10 +8400,6 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  magic-string@0.25.9:
-    dependencies:
-      sourcemap-codec: 1.4.8
-
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -8455,8 +8413,6 @@ snapshots:
       semver: 7.7.1
 
   map-stream@0.1.0: {}
-
-  material-design-lite@1.3.0: {}
 
   math-intrinsics@1.1.0: {}
 
@@ -9248,8 +9204,6 @@ snapshots:
 
   source-map@0.7.4: {}
 
-  sourcemap-codec@1.4.8: {}
-
   spawn-wrap@2.0.0:
     dependencies:
       foreground-child: 2.0.0
@@ -9635,12 +9589,6 @@ snapshots:
       vite: 5.4.14(@types/node@20.17.17)(sass-embedded@1.83.4)(terser@5.38.0)
     transitivePeerDependencies:
       - supports-color
-
-  vite-plugin-vue-setup-extend@0.4.0(vite@5.4.14(@types/node@20.17.17)(sass-embedded@1.83.4)(terser@5.38.0)):
-    dependencies:
-      '@vue/compiler-sfc': 3.5.13
-      magic-string: 0.25.9
-      vite: 5.4.14(@types/node@20.17.17)(sass-embedded@1.83.4)(terser@5.38.0)
 
   vite-tsconfig-paths@4.3.2(typescript@5.5.4)(vite@5.4.14(@types/node@20.17.17)(sass-embedded@1.83.4)(terser@5.38.0)):
     dependencies:

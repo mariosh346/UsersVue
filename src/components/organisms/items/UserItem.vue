@@ -119,6 +119,8 @@
       :label="SELECT_LABELS.pickupLocation"
     />
 
+    <slot />
+
     <BaseBtn
       :loading="loading"
       type="submit"

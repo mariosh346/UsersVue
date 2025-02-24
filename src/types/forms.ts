@@ -21,8 +21,7 @@ export interface SelectOption {
 }
 
 export const userCollectionFormDefault = {
-  id: undefined as string | undefined,
-  fullName: '', 
+  fullName: '',
   address: '',
   city: '',
   postalCode: '',
@@ -42,7 +41,9 @@ export const userCollectionFormDefault = {
   pickupLocation: PICKUP_LOCATION.delivery.value as PickupLocationType,
 }
 
-export type UserCollectionForm = typeof userCollectionFormDefault;
+export type UserCollectionForm = typeof userCollectionFormDefault & {
+  id: string | undefined,
+};
 
 export interface UserCollectionDocument extends UserCollectionForm {
   userId: string;

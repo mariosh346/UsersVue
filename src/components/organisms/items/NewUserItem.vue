@@ -2,23 +2,26 @@
   <h2>
     {{ $t('Νέα Καταχωρηση') }}
   </h2>
-  <UserItem :item="item" @submit="onSubmit" :error="error"
-  :loading="loading" :button-label="$t('Νέα Καταχώρηση')" />
+  <UserItem
+    :item="item"
+    :error="error"
+    :loading="loading"
+    :button-label="$t('Νέα Καταχώρηση')"
+    @submit="onSubmit"
+  />
 </template>
 
 <script setup lang="ts">
-import { required } from 'src/constants/validationRules';
-import { addDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { addDoc, serverTimestamp } from 'firebase/firestore';
 import { useUserStore } from 'src/stores/userStore';
-import { getUserDoc } from 'src/utlils/firestore/composables';
 import { itemsCollection } from 'src/utlils/firestore/db';
 import type { PropType } from 'vue';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { userCollectionFormDefault, type UserCollectionForm } from 'src/types/forms';
 import { useI18n } from 'vue-i18n';
 import UserItem from './UserItem.vue';
 
-const props = defineProps({
+defineProps({
   item: {
     type: Object as PropType<UserCollectionForm>,
     default: () => ({...userCollectionFormDefault})
