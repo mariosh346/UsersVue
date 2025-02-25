@@ -17,7 +17,8 @@
         "test:component": "cross-env NODE_ENV=test cypress open --component",
         "test:component:ci": "cross-env NODE_ENV=test cypress run --component",
         "test:unit": "vitest",
-        "test:unit:ci": "vitest run"
+        "test:unit:ci": "vitest run",
+        "lighthouse": "node test/lightHouse.js"
     },
     "dependencies": {
         "@quasar/extras": "^1.16.4",
