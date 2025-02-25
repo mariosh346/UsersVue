@@ -20,7 +20,7 @@ export default defineConfig({
       template: { transformAssetUrls },
     }),
     quasar({
-      sassVariables: 'src/quasar-variables.scss',
+      sassVariables: 'src/css/quasar.variables.scss',
     }),
     tsconfigPaths(),
   ],
