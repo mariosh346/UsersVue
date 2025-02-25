@@ -169,7 +169,11 @@ const emit = defineEmits<{
 const {item} = toRefs(props);
 
 const copyForm = (newVal: UserCollectionForm) => {
-  return { ...newVal, id: newVal.id };
+  const copied = { ...newVal };
+  if (newVal.id) {
+    copied.id = newVal.id;
+  }
+  return copied;
 }
 watch(item, (newVal) => {
   form.value = copyForm(newVal);

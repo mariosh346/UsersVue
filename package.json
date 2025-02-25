@@ -4,7 +4,6 @@
     "description": "A base app with users",
     "productName": "Users vue",
     "author": "Marios Tsigkas <mariosh346@gmail.com>",
-    "type": "module",
     "private": true,
     "scripts": {
         "lint": "eslint -c ./eslint.config.js \"./src*/**/*.{ts,js,cjs,mjs,vue}\"",
@@ -18,13 +17,15 @@
         "test:component:ci": "cross-env NODE_ENV=test cypress run --component",
         "test:unit": "vitest",
         "test:unit:ci": "vitest run",
-        "lighthouse": "node test/lightHouse.js"
+        "lighthouse": "node test/lightHouse.js",
+        "setAdmin": "npx tsx scripts/setAdmin.ts USER_ID_TO_SET_ADMIN"
     },
     "dependencies": {
         "@quasar/extras": "^1.16.4",
         "axios": "^1.2.1",
         "chrome-launcher": "^1.1.2",
         "firebase": "^11.2.0",
+        "firebase-admin": "^13.1.0",
         "lighthouse": "^12.3.0",
         "pinia": "^2.0.11",
         "quasar": "^2.16.0",
@@ -49,6 +50,7 @@
         "eslint-plugin-cypress": "^2.15.1",
         "eslint-plugin-vue": "^9.30.0",
         "globals": "^15.12.0",
+        "tsx": "^4.19.3",
         "typescript": "~5.5.3",
         "vite-plugin-checker": "^0.8.0",
         "vitest": "^2.0.5",
