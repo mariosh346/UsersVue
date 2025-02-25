@@ -4,6 +4,7 @@
       v-model="email"
       type="email"
       label="Email"
+      autocomplete="email"
       :rules="[val => !!val || 'Email is required']"
     />
     <base-input

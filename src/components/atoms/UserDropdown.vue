@@ -1,5 +1,9 @@
 <template>
-  <q-btn-dropdown rounded flat unelevated>
+  <q-btn-dropdown
+    rounded
+    flat
+    unelevated
+  >
     <template #default>
       <q-item v-close-popup>
         <q-item-section>
@@ -8,9 +12,19 @@
       </q-item>
     </template>
     <template #label>
-      <q-avatar v-if="user" color="accent">
-        <q-img v-if="user.photoURL" :src="user.photoURL" alt="userPhoto" />
-        <div v-else-if="userLetter" class="text-white">
+      <q-avatar
+        v-if="user"
+        color="accent"
+        alt="user photo"
+      >
+        <q-img
+          v-if="user.photoURL"
+          :src="user.photoURL"
+        />
+        <div
+          v-else-if="userLetter"
+          class="text-white"
+        >
           {{ userLetter }}
         </div>
       </q-avatar>

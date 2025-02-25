@@ -77,8 +77,8 @@
 </template>
 <script setup lang="ts">
 import { useUserStore } from 'src/stores/userStore';
-import { getUserItems } from 'src/utlils/firestore/composables';
-import { ref } from 'vue';
+import { getAllItems, getUserItems } from 'src/utlils/firestore/composables';
+import { computed, ref } from 'vue';
 import type { QTableProps } from 'quasar';
 import NewUserItem from './items/NewUserItem.vue';
 import UpdateUserItem from './items/UpdateUserItem.vue';
@@ -88,7 +88,11 @@ const userStore = useUserStore();
 if (!userStore.uid) {
   throw new Error("User is not logged in");
 }
-const userData = getUserItems(userStore.uid);
+const userSpecificData = getUserItems(userStore.uid);
+const allData = getAllItems();
+const userData = computed(() => {
+  return allData.value.length ? allData.value : userSpecificData.value;
+});
 
 const selectedItem = ref<typeof userData["value"][0] | undefined>(undefined);
 const setSelectedItem = (key: string) => {
