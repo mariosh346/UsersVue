@@ -3,7 +3,7 @@ import lighthouse from 'lighthouse';
 import * as chromeLauncher from 'chrome-launcher';
 
 const BASE_URL = 'http://localhost:9000';
-const previousScore = 49
+const previousScore = 40
 
 const chrome = await chromeLauncher.launch({chromeFlags: ['--headless']});
 const options = {logLevel: 'info', output: 'html', port: chrome.port};
@@ -26,5 +26,10 @@ if (!score) {
   process.exit(1);
 }
 console.log('Performance score was', score * 100);
+if (score * 100 < previousScore) {
+  console.error('Performance score is lower than previous score');
+  chrome.kill();
+  process.exit(1);
+}
 
 chrome.kill();
