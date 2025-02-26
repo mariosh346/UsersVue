@@ -1,11 +1,5 @@
 import { defineBoot } from '#q-app/wrappers'
-import { VueFire, VueFireAuthWithDependencies } from 'vuefire'
-import {
-  browserLocalPersistence,
-  debugErrorMap,
-  indexedDBLocalPersistence,
-  prodErrorMap,
-} from 'firebase/auth'
+import { VueFire, VueFireAuth } from 'vuefire'
 import { firebaseApp } from 'src/utlils/firestore/db'
 
 // "async" is optional;
@@ -13,20 +7,9 @@ import { firebaseApp } from 'src/utlils/firestore/db'
 export default defineBoot(({ app }) => {
   app.use(VueFire, {
     firebaseApp,
-    // modules: [
-    //   VueFireAuthWithDependencies({
-    //     dependencies: {
-    //       errorMap:
-    //         process.env.NODE_ENV !== 'production'
-    //           ? debugErrorMap
-    //           : prodErrorMap,
-    //       persistence: [
-    //         indexedDBLocalPersistence,
-    //         browserLocalPersistence,
-    //       ]
-    //     }
-    //   }),
-    // ],
+    modules: [
+      VueFireAuth()
+    ],
   })
 })
 

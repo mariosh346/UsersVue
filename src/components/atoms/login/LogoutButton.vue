@@ -3,19 +3,18 @@
     flat
     unelevated
     color="secondary"
-    @click="signout"
+    @click="handleSignout"
   >
     {{ $t('Αποσυνδεση') }}
   </base-btn>
 </template>
 <script setup lang="ts">
-import { signOut } from 'firebase/auth';
 import { useUserStore } from 'src/stores/userStore';
-import { authFire } from 'src/utlils/firestore/db';
+import { signout } from 'src/utlils/firestore/db';
 import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 
-const signout = () => {
-  signOut(authFire).then(() => {
+const handleSignout = () => {
+  signout().then(() => {
     useUserStore().setUser(null);
   }).catch((error) => {
     console.error('Failed signout', error);

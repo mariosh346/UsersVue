@@ -1,5 +1,8 @@
 import { initializeApp } from 'firebase/app'
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
+import type { User } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider,
+  signInWithPopup, signInWithEmailAndPassword,
+  createUserWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
 import { getFirestore, collection } from 'firebase/firestore'
 const firebaseConfig = {
   apiKey: "AIzaSyByqnFhzkTWWLjWczPN41c-5IbfJn3hRuI",
@@ -16,52 +19,51 @@ export const firebaseApp = initializeApp(
 
 // used for the firestore refs
 export const db = getFirestore(firebaseApp)
-export const authFire = getAuth(firebaseApp);
-
-const googleAuthProvider = new GoogleAuthProvider();
+// export const authFire = getAuth(firebaseApp);
 
 
 export function signinPopup() {
-  if (!authFire) return
-    // signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
-    //   debugger
-    //   console.error('Failed signinRedirect', reason)
-    // })
-    // signInWithPopup(auth, googleAuthProvider).catch((reason) => {
-    //   debugger
-    //   console.error('Failed signinRedirect', reason)
-    // })
-    signInWithPopup(authFire, googleAuthProvider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        if (!credential) {
-          throw new Error('Failed to get credential from result')
-        }
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
+  const authFire = getAuth(firebaseApp)
+  const googleAuthProvider = new GoogleAuthProvider();
+  if (!authFire) {
+    console.error('authFire is not initialized');
+    return;
+  }
 
-        // IdP data available using getAdditionalUserInfo(result)
-        console.log('signinRedirect result', user, token)
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        console.error('Failed signinRedirect error: ', errorCode, errorMessage, email, credential)
-        throw error;
-      });
+  return signInWithPopup(authFire, googleAuthProvider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      if (!credential) {
+        throw new Error('Failed to get credential from result')
+      }
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+
+      // IdP data available using getAdditionalUserInfo(result)
+      console.log('signinRedirect result', user, token)
+      return result;
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData?.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      console.error('Failed signinRedirect error: ', errorCode, errorMessage, email, credential)
+      throw error;
+    });
 }
 
 export function signinWithEmail(email: string, password: string) {
+  const authFire = getAuth(firebaseApp)
   return signInWithEmailAndPassword(authFire, email, password)
 }
 
 export function signupWithEmail(email: string, password: string) {
+  const authFire = getAuth(firebaseApp)
   return createUserWithEmailAndPassword(authFire, email, password)
   // .then((userCredential) => {
   //   // Signed in
@@ -75,6 +77,15 @@ export function signupWithEmail(email: string, password: string) {
   // })
 }
 
+export function signout() {
+  const authFire = getAuth(firebaseApp);
+  return signOut(authFire);
+}
+
+export function authStateChanged(callback: (user: User | null) => void) {
+  const authFire = getAuth(firebaseApp);
+  return onAuthStateChanged(authFire, callback);
+}
 
 export const itemsCollection = collection(db, 'collections')
 export const usersCollection = collection(db, 'users')
