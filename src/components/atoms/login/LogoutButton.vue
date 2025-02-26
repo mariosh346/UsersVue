@@ -8,16 +8,21 @@
     {{ $t('Αποσυνδεση') }}
   </base-btn>
 </template>
+
 <script setup lang="ts">
 import { useUserStore } from 'src/stores/userStore';
-import { signout } from 'src/utlils/firestore/db';
+import { useAuthFunctions } from 'src/composables/useAuthFunctions';
 import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 
+const { signout } = useAuthFunctions();
+
 const handleSignout = () => {
-  signout().then(() => {
-    useUserStore().setUser(null);
-  }).catch((error) => {
-    console.error('Failed signout', error);
-  });
+  signout()
+    .then(() => {
+      useUserStore().setUser(null);
+    })
+    .catch((error) => {
+      console.error('Failed signout', error);
+    });
 }
 </script>

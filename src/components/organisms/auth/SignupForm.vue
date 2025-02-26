@@ -43,9 +43,11 @@ import { useUserStore } from 'src/stores/userStore';
 import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 import BaseInput from 'src/components/atoms/BaseInput.vue';
 import ErrorBanner from 'src/components/atoms/ErrorBanner.vue';
-import { signupWithEmail } from 'src/utlils/firestore/db';
+import { useAuthFunctions } from 'src/composables/useAuthFunctions';
 
 const userStore = useUserStore();
+const { signupWithEmail } = useAuthFunctions();
+
 const email = ref('');
 const password = ref('');
 const confirmPassword = ref('');

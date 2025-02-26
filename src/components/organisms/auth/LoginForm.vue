@@ -30,8 +30,9 @@ import { ref } from 'vue';
 import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 import BaseInput from 'src/components/atoms/BaseInput.vue';
 import ErrorBanner from 'src/components/atoms/ErrorBanner.vue';
-import { signinWithEmail } from 'src/utlils/firestore/db';
+import { useAuthFunctions } from 'src/composables/useAuthFunctions';
 
+const { signinWithEmail } = useAuthFunctions();
 const email = ref('');
 const password = ref('');
 const loading = ref(false);

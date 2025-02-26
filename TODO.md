@@ -5,6 +5,8 @@ Primary
 - add state collection for every item
 - add driver
 - recover password
+- add app check to prevent abuse 
+https://vuefire.vuejs.org/guide/app-check.html
 
 Secondary
 - fix v-bind="attrs"
@@ -15,6 +17,7 @@ Secondary
 
 Bugs
 - fix users having the same items when changing users
+- fix error on google sign in
 
 
 DONE
