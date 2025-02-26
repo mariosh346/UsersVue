@@ -12,12 +12,12 @@
         <q-btn
           data-cy="ok-button"
           color="primary"
-          label="OK"
+          :label="$t('ok')"
           @click="onOKClick"
         />
         <q-btn
           color="primary"
-          label="Cancel"
+          :label="$t('cancel')"
           @click="onCancelClick"
         />
       </q-card-actions>

@@ -7,7 +7,7 @@
   <div>
     <q-input
       v-model="date"
-      label="Scegli data"
+      :label="$t('choose_date')"
     >
       <template #append>
         <q-btn

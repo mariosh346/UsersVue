@@ -14,11 +14,11 @@
           v-for="n in 50"
           :key="n"
         >
-          Drawer {{ n }} / 50
+          {{ $t('drawer_label', { current: n, total: 50 }) }}
         </div>
       </div>
       <q-btn data-cy="button">
-        Am I on screen?
+        {{ $t('am_i_on_screen') }}
       </q-btn>
     </q-scroll-area>
   </q-drawer>

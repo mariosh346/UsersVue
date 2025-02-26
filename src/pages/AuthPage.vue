@@ -10,11 +10,11 @@
       >
         <q-tab
           name="login"
-          label="Login"
+          :label="$t('login')"
         />
         <q-tab
           name="signup"
-          label="Sign up"
+          :label="$t('sign_up')"
         />
       </q-tabs>
 

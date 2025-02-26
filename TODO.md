@@ -1,6 +1,6 @@
 Primary
 - admin and driver can have a list of items
-- better rules https://firebase.google.com/docs/rules/insecure-rules#firestore
+- better rules for prod https://firebase.google.com/docs/rules/insecure-rules#firestore
 - error handling on auth page
 - add state collection for every item
 - add driver
@@ -16,8 +16,6 @@ Secondary
 - email autocomplete
 
 Bugs
-- fix users having the same items when changing users
-- fix error on google sign in
 
 
 DONE
@@ -26,3 +24,5 @@ DONE
 - how to determine if a user is admin -> move user data to firestore or use setCustomUserClaims
 https://stackoverflow.com/questions/63064314/how-to-access-all-data-in-a-firestore-database-with-admin-approval
 https://firebase.google.com/docs/auth/admin/manage-users
+- fix users having the same items when changing users
+- fix error on google sign in

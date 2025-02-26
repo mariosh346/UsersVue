@@ -1,7 +1,7 @@
 <template>
   <q-btn
     data-cy="open-menu-btn"
-    label="Open menu"
+    :label="$t('open_menu')"
   >
     <q-menu>
       <q-list>
@@ -9,13 +9,14 @@
           v-close-popup
           clickable
         >
-          <q-item-section>Item 1</q-item-section>
+          <q-item-section>{{ $t('item') }} 1</q-item-section>
         </q-item>
         <q-item
           v-close-popup
           clickable
         >
-          <q-item-section>Item 2</q-item-section>
+          <q-item-section>{{ $t('item') }} 2</q-item-section>
+          
         </q-item>
       </q-list>
     </q-menu>
