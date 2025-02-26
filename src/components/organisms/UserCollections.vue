@@ -77,7 +77,7 @@
 </template>
 <script setup lang="ts">
 import { useUserStore } from 'src/stores/userStore';
-import { getAllItems, getUserItems } from 'src/utlils/firestore/composables';
+import { useAllItemsCollection, getUserItems } from 'src/utlils/firestore/composables';
 import { computed, ref } from 'vue';
 import type { QTableProps } from 'quasar';
 import NewUserItem from './items/NewUserItem.vue';
@@ -89,7 +89,7 @@ if (!userStore.uid) {
   throw new Error("User is not logged in");
 }
 const userSpecificData = getUserItems(userStore.uid);
-const allData = getAllItems();
+const allData = useAllItemsCollection();
 const userData = computed(() => {
   return allData.value.length ? allData.value : userSpecificData.value;
 });

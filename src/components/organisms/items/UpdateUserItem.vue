@@ -19,7 +19,6 @@
 
 <script setup lang="ts">
 import { serverTimestamp, updateDoc } from 'firebase/firestore';
-import { getItemDoc } from 'src/utlils/firestore/composables';
 import type { PropType } from 'vue';
 import { ref } from 'vue';
 import { userCollectionFormDefault, type UserCollectionForm } from 'src/types/forms';
@@ -29,6 +28,7 @@ import {
   FORM_LABELS,
   PLACEHOLDERS,
 } from 'src/constants/strings';
+import { getItemDoc } from 'src/utlils/firestore/db';
 
 defineProps({
   item: {

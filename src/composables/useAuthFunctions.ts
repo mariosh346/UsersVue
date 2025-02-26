@@ -6,17 +6,27 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  type User
+  type User,
+  type Auth
 } from 'firebase/auth'
 import { firebaseApp } from 'src/utlils/firestore/db'
 import { useFirebaseAuth } from 'vuefire';
+import { reloadPage } from 'src/utils/reload';
 
 export function useAuthFunctions() {
   const auth = useFirebaseAuth();
 
+  const checkAuth = (): Auth => {
+    if (!auth) {
+      throw new Error("Firebase auth is not initialized");
+    }
+    return auth;
+  };
+
   const signinPopup = () => {
+    const authChecked = checkAuth();
     const googleAuthProvider = new GoogleAuthProvider();
-    return signInWithPopup(auth, googleAuthProvider)
+    return signInWithPopup(authChecked, googleAuthProvider)
       .then(result => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         if (!credential) {
@@ -31,17 +41,27 @@ export function useAuthFunctions() {
       });
   };
 
-  const signinWithEmail = (email: string, password: string) =>
-    signInWithEmailAndPassword(auth, email, password);
+  const signinWithEmail = (email: string, password: string) => {
+    const authChecked = checkAuth();
+    return signInWithEmailAndPassword(authChecked, email, password);
+  };
 
-  const signupWithEmail = (email: string, password: string) =>
-    createUserWithEmailAndPassword(auth, email, password);
+  const signupWithEmail = (email: string, password: string) => {
+    const authChecked = checkAuth();
+    return createUserWithEmailAndPassword(authChecked, email, password);
+  };
 
-  const signout = () =>
-    signOut(auth);
+  const signout = () => {
+    const authChecked = checkAuth();
+    return signOut(authChecked).then(()=> {
+      reloadPage();
+    });
+  };
 
-  const authStateChanged = (callback: (user: User | null) => void) =>
-    onAuthStateChanged(auth, callback);
+  const authStateChanged = (callback: (user: User | null) => void) => {
+    const authChecked = checkAuth();
+    return onAuthStateChanged(authChecked, callback);
+  };
 
   return { signinPopup, signinWithEmail, signupWithEmail, signout, authStateChanged };
 }
