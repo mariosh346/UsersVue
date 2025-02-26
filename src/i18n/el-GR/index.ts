@@ -88,5 +88,13 @@ export default {
   cancel: "Ακύρωση",
   choose_date: "Επιλογή ημερομηνίας",
   dark_content: "Σκοτεινό περιεχόμενο",
-  light_content: "Φωτεινό περιεχόμενο"
+  light_content: "Φωτεινό περιεχόμενο",
+  forgot_password: "Ξεχάσατε τον κωδικό σας",
+  forgot_password_question: "Ξεχάσατε τον κωδικό σας;",
+  reset_password: "Επαναφορά κωδικού",
+  back_to_login: "Επιστροφή στη σύνδεση",
+  reset_email_sent: "Το email επαναφοράς στάλθηκε επιτυχώς",
+  reset_email_failed: "Αποτυχία αποστολής email επαναφοράς",
+  email: "Email",
+  email_required: "Το email είναι υποχρεωτικό"
 };

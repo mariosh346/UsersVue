@@ -10,6 +10,5 @@ const { t } = useI18n();
 function onClick() {
   Notify.create(t('hello_there'));
 }
-functi
 
 </script>

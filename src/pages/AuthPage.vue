@@ -1,34 +1,30 @@
 <template>
-  <q-page
-    padding
-    class="flex flex-center"
-  >
+  <q-page padding class="flex flex-center">
     <q-card class="auth-card">
-      <q-tabs
-        v-model="tab"
-        class="text-primary"
-      >
-        <q-tab
-          name="login"
-          :label="$t('login')"
-        />
-        <q-tab
-          name="signup"
-          :label="$t('sign_up')"
-        />
+      <q-tabs v-model="tab" class="text-primary" v-if="!showForgotPassword">
+        <q-tab name="login" :label="$t('login')" />
+        <q-tab name="signup" :label="$t('sign_up')" />
       </q-tabs>
 
-      <q-tab-panels
-        v-model="tab"
-        animated
-      >
+      <q-card-section v-if="showForgotPassword">
+        <div class="text-h6">{{ $t('forgot_password') }}</div>
+      </q-card-section>
+
+      <q-tab-panels v-model="tab" v-if="!showForgotPassword" animated>
         <q-tab-panel name="login">
           <login-form />
+          <div class="text-center q-mt-md">
+            <BaseBtn flat color="primary" :label="$t('forgot_password_question')" @click="showForgotPassword = true" />
+          </div>
         </q-tab-panel>
         <q-tab-panel name="signup">
           <signup-form />
         </q-tab-panel>
       </q-tab-panels>
+
+      <q-card-section v-else>
+        <forgot-password-form @back="showForgotPassword = false" />
+      </q-card-section>
     </q-card>
   </q-page>
 </template>
@@ -39,8 +35,11 @@ import { useRouter } from 'vue-router';
 import { useUserStore } from 'src/stores/userStore';
 import LoginForm from 'src/components/organisms/auth/LoginForm.vue';
 import SignupForm from 'src/components/organisms/auth/SignupForm.vue';
+import ForgotPasswordForm from 'src/components/organisms/auth/ForgotPasswordForm.vue';
+import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 
 const tab = ref('login');
+const showForgotPassword = ref(false);
 
 const router = useRouter();
 const userStore = useUserStore();

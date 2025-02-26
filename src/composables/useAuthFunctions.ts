@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   type User,
   type Auth
 } from 'firebase/auth'
@@ -63,5 +64,25 @@ export function useAuthFunctions() {
     return onAuthStateChanged(authChecked, callback);
   };
 
-  return { signinPopup, signinWithEmail, signupWithEmail, signout, authStateChanged };
+  const forgotPassword = (email: string) => {
+    const authChecked = checkAuth();
+    return sendPasswordResetEmail(authChecked, email)
+      .then(() => {
+        console.log('Password reset email sent');
+        return true;
+      })
+      .catch((error) => {
+        console.error('Failed to send reset email:', error);
+        throw error;
+      });
+  };
+
+  return {
+    signinPopup,
+    signinWithEmail,
+    signupWithEmail,
+    signout,
+    authStateChanged,
+    forgotPassword
+  };
 }

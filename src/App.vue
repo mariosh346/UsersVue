@@ -7,14 +7,15 @@ import { useUserStore } from './stores/userStore';
 import { useAuthFunctions } from 'src/composables/useAuthFunctions';
 
 const { authStateChanged } = useAuthFunctions();
+const userStore = useUserStore();
 
 authStateChanged((user) => {
   if (user) {
-    useUserStore().setUser(user);
+    userStore.setUser(user);
     console.log('User is signed in', user.uid);
   } else {
     console.log('User is signed out');
-    useUserStore().setUser(null);
+    userStore.setUser(null);
   }
 });
 </script>
