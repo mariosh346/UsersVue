@@ -5,6 +5,7 @@
     "productName": "Users vue",
     "author": "Marios Tsigkas <mariosh346@gmail.com>",
     "private": true,
+    "type": "module",
     "scripts": {
         "lint": "eslint -c ./eslint.config.js \"./src*/**/*.{ts,js,cjs,mjs,vue}\"",
         "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
