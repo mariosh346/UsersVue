@@ -9,16 +9,6 @@ export default defineConfigWithVueTs([
   ...pluginQuasar.configs.recommended(),
   js.configs.recommended,
   ...pluginVue.configs[ 'flat/recommended' ],
-
-  // {
-  //   files: ['**/*.ts', '**/*.vue'],
-  //   rules: {
-  //     '@typescript-eslint/consistent-type-imports': [
-  //       'error',
-  //       { prefer: 'type-imports' }
-  //     ],
-  //   }
-  // },
   vueTsConfigs.recommendedTypeChecked,
 
   {
@@ -53,9 +43,6 @@ export default defineConfigWithVueTs([
       // 'eslint-comments/no-use': ['warn', { allow: [] }],
       curly: 'error',
       'max-len': ['warn', { code: 120 }],
-      'padded-blocks': [
-        'warn'
-      ],
       'space-in-parens': [
         'warn'
       ],
@@ -102,12 +89,12 @@ export default defineConfigWithVueTs([
           message: 'String Enums are not allowed. Use an Object or a string union type instead.'
         }
       ],
-      // '@typescript-eslint/ban-ts-comment': 'warn',
-      // '@typescript-eslint/no-non-null-assertion': 'error',
-      // '@typescript-eslint/no-explicit-any': 'warn',
-      // '@typescript-eslint/consistent-type-assertions': [
-      //   'error', { assertionStyle: 'as', objectLiteralTypeAssertions: 'never' }
-      // ],
+      '@typescript-eslint/ban-ts-comment': 'warn',
+      '@typescript-eslint/no-non-null-assertion': 'error',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/consistent-type-assertions': [
+        'error', { assertionStyle: 'as', objectLiteralTypeAssertions: 'never' }
+      ],
       'no-unneeded-ternary': 'error',
       // 'import/no-unused-modules': 'error',
       camelcase: 0,
