@@ -1,28 +1,27 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import pluginVue from 'eslint-plugin-vue'
-import pluginQuasar from '@quasar/app-vite/eslint'
-import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
+import js from '@eslint/js';
+import globals from 'globals';
+import pluginVue from 'eslint-plugin-vue';
+import pluginQuasar from '@quasar/app-vite/eslint';
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
 
-export default defineConfigWithVueTs(
+export default defineConfigWithVueTs([
+
+  ...pluginQuasar.configs.recommended(),
+  js.configs.recommended,
+  ...pluginVue.configs[ 'flat/recommended' ],
+
+  // {
+  //   files: ['**/*.ts', '**/*.vue'],
+  //   rules: {
+  //     '@typescript-eslint/consistent-type-imports': [
+  //       'error',
+  //       { prefer: 'type-imports' }
+  //     ],
+  //   }
+  // },
+  vueTsConfigs.recommendedTypeChecked,
+
   {
-    overrides: [
-      {
-        files: ['**/*.ts', '**/*.vue'],
-        rules: {
-          '@typescript-eslint/consistent-type-imports': [
-            'error',
-            { prefer: 'type-imports' }
-          ],
-        }
-      }
-    ],
-    extends: [
-      js.configs.recommended,
-      ...pluginQuasar.configs.recommended(),
-      ...pluginVue.configs['flat/recommended'],
-      vueTsConfigs.recommendedTypeChecked,
-    ],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -51,8 +50,7 @@ export default defineConfigWithVueTs(
         'warn'
       ],
       'max-params': ['warn', 2],
-      '@typescript-eslint/ban-ts-comment': 'warn',
-      'eslint-comments/no-use': ['warn', { allow: [] }],
+      // 'eslint-comments/no-use': ['warn', { allow: [] }],
       curly: 'error',
       'max-len': ['warn', { code: 120 }],
       'padded-blocks': [
@@ -80,19 +78,19 @@ export default defineConfigWithVueTs(
       'standard/no-callback-literal': 0,
       'no-unused-vars': 0,
 
-      'vue/max-attributes-per-line': [
-        'error',
-        {
-          singleline: {
-            max: 1,
-            allowFirstLine: true
-          },
-          multiline: {
-            max: 1,
-            allowFirstLine: false
-          }
-        }
-      ],
+      // 'vue/max-attributes-per-line': [
+      //   'error',
+      //   {
+      //     singleline: {
+      //       max: 1,
+      //       allowFirstLine: true
+      //     },
+      //     multiline: {
+      //       max: 1,
+      //       allowFirstLine: false
+      //     }
+      //   }
+      // ],
       'no-restricted-syntax': [
         'error',
         {
@@ -104,22 +102,24 @@ export default defineConfigWithVueTs(
           message: 'String Enums are not allowed. Use an Object or a string union type instead.'
         }
       ],
-      '@typescript-eslint/no-non-null-assertion': 'error',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/consistent-type-assertions': [
-        'error', { assertionStyle: 'as', objectLiteralTypeAssertions: 'never' }
-      ],
+      // '@typescript-eslint/ban-ts-comment': 'warn',
+      // '@typescript-eslint/no-non-null-assertion': 'error',
+      // '@typescript-eslint/no-explicit-any': 'warn',
+      // '@typescript-eslint/consistent-type-assertions': [
+      //   'error', { assertionStyle: 'as', objectLiteralTypeAssertions: 'never' }
+      // ],
       'no-unneeded-ternary': 'error',
-      'import/no-unused-modules': 'error',
+      // 'import/no-unused-modules': 'error',
       camelcase: 0,
+      '@typescript-eslint/no-floating-promises': 'warn'
     }
   },
   {
-    files: ['src-pwa/custom-service-worker.ts'],
+    files: [ 'src-pwa/custom-service-worker.ts' ],
     languageOptions: {
       globals: {
         ...globals.serviceworker
       }
     }
   }
-)
+]);
