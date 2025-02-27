@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Notify, useQuasar } from 'quasar';
+import { Notify } from 'quasar';
 import { useAuthFunctions } from 'src/composables/useAuthFunctions';
 import { useI18n } from 'vue-i18n';
 import BaseBtn from 'src/components/atoms/BaseBtn.vue';
@@ -53,14 +53,14 @@ const onSubmit = async () => {
       message: t('reset_email_sent')
     });
     email.value = '';
-  
-  } catch (error) {
+
+  } catch {
 
     Notify.create({
       type: 'negative',
       message: t('reset_email_failed')
     });
-  
+
   }
 
 };

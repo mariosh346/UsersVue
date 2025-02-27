@@ -39,13 +39,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useUserStore } from 'src/stores/userStore';
 import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 import BaseInput from 'src/components/atoms/BaseInput.vue';
 import ErrorBanner from 'src/components/atoms/ErrorBanner.vue';
 import { useAuthFunctions } from 'src/composables/useAuthFunctions';
+import { FirebaseError } from 'firebase/app';
 
-const userStore = useUserStore();
 const { signupWithEmail } = useAuthFunctions();
 
 const email = ref('');
@@ -61,16 +60,16 @@ const handleSubmit = async () => {
   try {
 
     await signupWithEmail(email.value, password.value);
-  
+
   } catch (e) {
 
-    error.value = e instanceof Error ? e.code : 'An unknown error occurred';
+    error.value = e instanceof FirebaseError ? e.code : 'An unknown error occurred';
     console.error(e);
-  
+
   } finally {
 
     loading.value = false;
-  
+
   }
 
 };

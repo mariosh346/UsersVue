@@ -1,5 +1,4 @@
 import {
-  getAuth,
   GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
@@ -10,7 +9,6 @@ import {
   type User,
   type Auth
 } from 'firebase/auth';
-import { firebaseApp } from 'src/utlils/firestore/db';
 import { useFirebaseAuth } from 'vuefire';
 import { reloadPage } from 'src/utils/reload';
 
@@ -23,10 +21,10 @@ export function useAuthFunctions() {
     if (!auth) {
 
       throw new Error("Firebase auth is not initialized");
-    
+
     }
     return auth;
-  
+
   };
 
   const signinPopup = () => {
@@ -40,33 +38,33 @@ export function useAuthFunctions() {
         if (!credential) {
 
           throw new Error('Failed to get credential from result');
-        
+
         }
         console.log('signinPopup result', result.user, credential.accessToken);
         return result;
-      
+
       })
       .catch(error => {
 
         console.error('Failed signinPopup error:', error.code, error.message, error.customData?.email);
         throw error;
-      
+
       });
-  
+
   };
 
   const signinWithEmail = (email: string, password: string) => {
 
     const authChecked = checkAuth();
     return signInWithEmailAndPassword(authChecked, email, password);
-  
+
   };
 
   const signupWithEmail = (email: string, password: string) => {
 
     const authChecked = checkAuth();
     return createUserWithEmailAndPassword(authChecked, email, password);
-  
+
   };
 
   const signout = () => {
@@ -75,16 +73,16 @@ export function useAuthFunctions() {
     return signOut(authChecked).then(()=> {
 
       reloadPage();
-    
+
     });
-  
+
   };
 
   const authStateChanged = (callback: (user: User | null) => void) => {
 
     const authChecked = checkAuth();
     return onAuthStateChanged(authChecked, callback);
-  
+
   };
 
   const forgotPassword = (email: string) => {
@@ -95,15 +93,15 @@ export function useAuthFunctions() {
 
         console.log('Password reset email sent');
         return true;
-      
+
       })
       .catch((error) => {
 
         console.error('Failed to send reset email:', error);
         throw error;
-      
+
       });
-  
+
   };
 
   return {

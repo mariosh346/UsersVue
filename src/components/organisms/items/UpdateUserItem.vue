@@ -24,10 +24,6 @@ import { ref } from 'vue';
 import { userCollectionFormDefault, type UserCollectionForm } from 'src/types/forms';
 import { useI18n } from 'vue-i18n';
 import UserItem from './UserItem.vue';
-import {
-  FORM_LABELS,
-  PLACEHOLDERS,
-} from 'src/constants/strings';
 import { getItemDoc } from 'src/utlils/firestore/db';
 
 defineProps({
@@ -49,7 +45,7 @@ const onSubmit = async (form: UserCollectionForm) => {
     if (!form?.id) {
 
       throw new Error('No id provided');
-    
+
     }
     await updateDoc(getItemDoc(form.id), {
       ...form,
@@ -60,16 +56,16 @@ const onSubmit = async (form: UserCollectionForm) => {
     //   dateUpdated: serverTimestamp(),
     //   collections: [...userStore.user.value.collections, refCollection.id]
     // })
-  
+
   } catch (e) {
 
     console.error('Error adding document: ', e);
     error.value = t('Προέκυψε σφάλμα κατά την προσθήκη της συλλογή');
-  
+
   } finally {
 
     loading.value = false;
-  
+
   }
 
 };

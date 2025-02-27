@@ -19,7 +19,11 @@ const props = defineProps<Omit<QSelectProps, 'onUpdate:modelValue'> & {
   options: Array<SelectOption>;
 }>();
 
-const selectedOption = computed(() => props.options && props.options.find((option) => option.value === props.modelValue));
+const selectedOption = computed(() =>
+  props.options && props.options.find(
+    (option) => option.value === props.modelValue
+  )
+);
 
 defineEmits<{
   (e: 'update:modelValue', value: typeof props["modelValue"]): void;
