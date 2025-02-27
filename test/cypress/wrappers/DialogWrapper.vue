@@ -16,13 +16,14 @@ export default defineComponent({
   },
   setup(props) {
 
+    // eslint-disable-next-line vue/no-setup-props-destructure
     Dialog.create({
       component: props.component,
 
       // props forwarded to your custom component
       componentProps: props.componentProps,
     });
-  
+
   },
 });
 </script>

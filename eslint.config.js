@@ -39,8 +39,6 @@ export default defineConfigWithVueTs([
       'keyword-spacing': [
         'warn'
       ],
-      'max-params': ['warn', 2],
-      // 'eslint-comments/no-use': ['warn', { allow: [] }],
       curly: 'error',
       'max-len': ['warn', { code: 120 }],
       'space-in-parens': [
@@ -89,7 +87,6 @@ export default defineConfigWithVueTs([
           message: 'String Enums are not allowed. Use an Object or a string union type instead.'
         }
       ],
-      '@typescript-eslint/ban-ts-comment': 'warn',
       '@typescript-eslint/no-non-null-assertion': 'error',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/consistent-type-assertions': [
@@ -98,7 +95,11 @@ export default defineConfigWithVueTs([
       'no-unneeded-ternary': 'error',
       // 'import/no-unused-modules': 'error',
       camelcase: 0,
-      '@typescript-eslint/no-floating-promises': 'warn'
+      '@typescript-eslint/no-floating-promises': 'warn',
+      // 'eslint-comments/no-use': ['error', { allow: [] }],
+      'max-params': ['error', 3],
+      '@typescript-eslint/ban-ts-comment': 'error',
+      'vue/no-setup-props-destructure': 'error'
     }
   },
   {
