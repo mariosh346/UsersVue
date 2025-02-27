@@ -12,8 +12,10 @@ export default defineConfig({
   defaultCommandTimeout: 10000,
   e2e: {
     setupNodeEvents(on, config) {
+
       registerCodeCoverageTasks(on, config);
       return config;
+    
     },
     baseUrl: BASE_URL,
     supportFile: 'test/cypress/support/e2e.ts',
@@ -21,8 +23,10 @@ export default defineConfig({
   },
   component: {
     setupNodeEvents(on, config) {
+
       registerCodeCoverageTasks(on, config);
       return config;
+    
     },
     supportFile: 'test/cypress/support/component.ts',
     specPattern: 'src/**/*.cy.{js,jsx,ts,tsx}',

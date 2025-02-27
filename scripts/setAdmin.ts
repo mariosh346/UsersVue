@@ -10,8 +10,10 @@ const auth = admin.auth();
 const uid = process.argv[2];
 
 if (!uid) {
+
   console.error('Please provide a UID as a command-line argument');
   process.exit(1);
+
 }
 
 const customClaims = {
@@ -22,8 +24,12 @@ const customClaims = {
 
 auth.setCustomUserClaims(uid, customClaims)
   .then(() => {
+
     console.log('Custom claims set for UID:', uid);
+  
   })
   .catch((error) => {
+
     console.error('Error setting custom claims:', error);
+  
   });

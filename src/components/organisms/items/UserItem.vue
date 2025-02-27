@@ -162,21 +162,27 @@ const props = defineProps({
   loading: {type: Boolean, required: true },
   error: {type: String, required: true },
   buttonLabel: {type: String, required: true }
-})
+});
 const emit = defineEmits<{
   (e: 'submit', value: typeof props["item"]): void;
 }>();
 const {item} = toRefs(props);
 
 const copyForm = (newVal: UserCollectionForm) => {
+
   const copied = { ...newVal };
   if (newVal.id) {
+
     copied.id = newVal.id;
+  
   }
   return copied;
-}
+
+};
 watch(item, (newVal) => {
+
   form.value = copyForm(newVal);
+
 }, { deep: true });
 
 const urgentDeliveryOptions = computed(() => objectToOptions(URGENT_DELIVERY));
@@ -188,7 +194,9 @@ const protocolNumberOptions = computed(() => objectToOptions(PROTOCOL_NUMBER));
 const form = ref<UserCollectionForm>(copyForm(item.value));
 
 const onSubmit = () => {
+
   emit('submit', form.value);
-}
+
+};
 
 </script>

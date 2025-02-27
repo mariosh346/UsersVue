@@ -11,11 +11,15 @@ export const useCounterStore = defineStore('counter', {
 
   actions: {
     increment() {
+
       this.counter++;
+    
     },
   },
 });
 
 if (import.meta.hot) {
+
   import.meta.hot.accept(acceptHMRUpdate(useCounterStore, import.meta.hot));
+
 }

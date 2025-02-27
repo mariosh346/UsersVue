@@ -38,6 +38,7 @@ import { defineComponent, ref } from 'vue';
 export default defineComponent({
   name: 'QuasarDate',
   setup() {
+
     const date = ref('');
     const dateDialogRef = ref() as Ref<QDialog>;
 
@@ -45,6 +46,7 @@ export default defineComponent({
       date,
       dateDialogRef,
     };
+  
   },
 });
 </script>

@@ -35,32 +35,42 @@ defineProps({
     type: Object as PropType<UserCollectionForm>,
     default: () => ({...userCollectionFormDefault})
   }
-})
+});
 
 const loading = ref(false);
 const error = ref('');
 const { t } = useI18n();
 const onSubmit = async (form: UserCollectionForm) => {
+
   error.value = '';
   try {
+
     loading.value = true;
     if (!form?.id) {
+
       throw new Error('No id provided');
+    
     }
     await updateDoc(getItemDoc(form.id), {
       ...form,
       dateUpdated: serverTimestamp(),
-    })
+    });
     // if (!userStore?.user?.value || !userStore.uid) return;
     // await updateDoc(getUserDoc(userStore?.uid), {
     //   dateUpdated: serverTimestamp(),
     //   collections: [...userStore.user.value.collections, refCollection.id]
     // })
+  
   } catch (e) {
+
     console.error('Error adding document: ', e);
     error.value = t('Προέκυψε σφάλμα κατά την προσθήκη της συλλογή');
+  
   } finally {
+
     loading.value = false;
+  
   }
-}
+
+};
 </script>

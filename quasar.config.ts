@@ -5,6 +5,7 @@ import { defineConfig } from '#q-app/wrappers';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig((ctx) => {
+
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
@@ -15,7 +16,7 @@ export default defineConfig((ctx) => {
     boot: [
       'i18n',
       'axios',
-    'vueFireInit'
+      'vueFireInit'
     ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
@@ -97,24 +98,36 @@ export default defineConfig((ctx) => {
         {
           name: 'default-lang-ts-scss',
           transform(code, id) {
+
             if (id.endsWith('.vue')) {
+
               // Add lang="ts" to <script> blocks
               code = code.replace(/<script(\s[^>]*)?>/g, (match) => {
+
                 if (!match.includes('lang=')) {
+
                   return match.replace('<script', '<script lang="ts"');
+                
                 }
                 return match;
+              
               });
 
               // Add lang="scss" to <style> blocks
               code = code.replace(/<style(\s[^>]*)?>/g, (match) => {
+
                 if (!match.includes('lang=')) {
+
                   return match.replace('<style', '<style scoped lang="scss"');
+                
                 }
                 return match;
+              
               });
+            
             }
             return code;
+          
           },
         },
       ]
@@ -164,7 +177,7 @@ export default defineConfig((ctx) => {
     // https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
     ssr: {
       prodPort: 3000, // The default port that the production server should use
-                      // (gets superseded if process.env.PORT is specified at runtime)
+      // (gets superseded if process.env.PORT is specified at runtime)
 
       middlewares: [
         'render' // keep this as last one
@@ -258,5 +271,6 @@ export default defineConfig((ctx) => {
        */
       extraScripts: []
     }
-  }
+  };
+
 });

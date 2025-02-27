@@ -86,21 +86,29 @@ import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 
 const userStore = useUserStore();
 if (!userStore.uid) {
+
   throw new Error("User is not logged in");
+
 }
 const userSpecificData = getUserItems(userStore.uid);
 const allData = useAllItemsCollection();
 const userData = computed(() => {
+
   return allData.value.length ? allData.value : userSpecificData.value;
+
 });
 
 const selectedItem = ref<typeof userData["value"][0] | undefined>(undefined);
 const setSelectedItem = (key: string) => {
+
   const item = userData.value.find((item) => item.id === key);
   if (!item) {
+
     throw new Error("Item not found");
+  
   }
   selectedItem.value = item;
+
 };
 
 const columns: QTableProps["columns"] = [

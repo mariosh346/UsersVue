@@ -17,6 +17,7 @@ import routes from './routes';
  */
 
 export default defineRouter(function (/* { store, ssrContext } */) {
+
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory);
@@ -32,4 +33,5 @@ export default defineRouter(function (/* { store, ssrContext } */) {
   });
 
   return Router;
+
 });

@@ -7,12 +7,18 @@ const { signinPopup } = useAuthFunctions();
 const error = ref<unknown>(null);
 
 async function signinRedirect() {
+
   try {
+
     await signinPopup();
+  
   } catch (e: unknown) {
+
     error.value = e;
     console.error('Signin error:', e);
+  
   }
+
 }
 </script>
 

@@ -6,8 +6,12 @@ import LayoutComponent from './demo/LayoutComponent.vue';
 installQuasarPlugin();
 
 describe('layout example', () => {
+
   it('should mount component properly', () => {
+
     const wrapper = mount(LayoutComponent);
     expect(wrapper.exists()).to.be.true;
+  
   });
+
 });

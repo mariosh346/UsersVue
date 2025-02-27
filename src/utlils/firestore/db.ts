@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, doc } from 'firebase/firestore'
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, doc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyByqnFhzkTWWLjWczPN41c-5IbfJn3hRuI",
@@ -9,13 +9,13 @@ const firebaseConfig = {
   messagingSenderId: "304981610003",
   appId: "1:304981610003:web:1dd8d65d828e65664d39e6",
   measurementId: "G-ZYYQCWBFZG"
-}
+};
 
-export const firebaseApp = initializeApp(firebaseConfig)
+export const firebaseApp = initializeApp(firebaseConfig);
 
 // used for the firestore refs
-export const db = getFirestore(firebaseApp)
-export const itemsCollection = collection(db, 'collections')
-export const usersCollection = collection(db, 'users')
-export const getUserDoc = (id: string) => doc(usersCollection, id)
-export const getItemDoc = (id: string) => doc(itemsCollection, id)
+export const db = getFirestore(firebaseApp);
+export const itemsCollection = collection(db, 'collections');
+export const usersCollection = collection(db, 'users');
+export const getUserDoc = (id: string) => doc(usersCollection, id);
+export const getItemDoc = (id: string) => doc(itemsCollection, id);

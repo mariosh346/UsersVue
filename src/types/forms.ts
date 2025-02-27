@@ -39,7 +39,7 @@ export const userCollectionFormDefault = {
   deliveryPickup: DELIVERY_PICKUP.simple.value as DeliveryPickupType,
   sameDay: SAME_DAY.normal.value as SameDayType,
   pickupLocation: PICKUP_LOCATION.delivery.value as PickupLocationType,
-}
+};
 
 export type UserCollectionForm = typeof userCollectionFormDefault & {
   id: string | undefined,

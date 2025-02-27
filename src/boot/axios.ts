@@ -17,6 +17,7 @@ declare module 'vue' {
 const api = axios.create({ baseURL: 'https://api.example.com' });
 
 export default defineBoot(({ app }) => {
+
   // for use inside Vue files (Options API) through this.$axios and this.$api
 
   app.config.globalProperties.$axios = axios;
@@ -26,6 +27,7 @@ export default defineBoot(({ app }) => {
   app.config.globalProperties.$api = api;
   // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
   //       so you can easily perform requests against your app's API
+
 });
 
 export { api };
