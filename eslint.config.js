@@ -19,7 +19,7 @@ export default defineConfigWithVueTs([
   //     ],
   //   }
   // },
-  //vueTsConfigs.recommendedTypeChecked,
+  vueTsConfigs.recommendedTypeChecked,
 
   {
     languageOptions: {
