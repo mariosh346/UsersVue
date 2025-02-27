@@ -31,6 +31,7 @@ import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 import BaseInput from 'src/components/atoms/BaseInput.vue';
 import ErrorBanner from 'src/components/atoms/ErrorBanner.vue';
 import { useAuthFunctions } from 'src/composables/useAuthFunctions';
+import { FirebaseError } from 'firebase/app';
 
 const { signinWithEmail } = useAuthFunctions();
 const email = ref('');
@@ -43,7 +44,7 @@ const handleSubmit = async () => {
   try {
     await signinWithEmail(email.value, password.value);
   } catch (e) {
-    error.value = e instanceof Error ? e.code : 'An unknown error occurred';
+    error.value = e instanceof FirebaseError ? e.code : 'An unknown error occurred';
   } finally {
     loading.value = false;
   }

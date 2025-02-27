@@ -4,7 +4,8 @@
     :label="$t('email')" type="email" :rules="[val => !!val || $t('email_required')]" />
 
     <div class="row justify-between q-mt-md">
-      <base-btn :label="$t('reset_password')" type="submit" color="primary" class="q-mt-lg full-width" />
+      <base-btn :label="$t('reset_password')"
+      type="submit" color="primary" class="q-mt-lg full-width" />
       <base-btn :label="$t('back_to_login')"
       color="primary" flat @click="$emit('back')" class="q-mt-lg full-width" />
     </div>
