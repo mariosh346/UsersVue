@@ -5,7 +5,10 @@
         {{ $t('error_404') }}
       </div>
 
-      <div class="text-h2" style="opacity:.4">
+      <div
+        class="text-h2"
+        style="opacity:.4"
+      >
         {{ $t('oops_nothing_here') }}
       </div>
 

@@ -30,11 +30,13 @@ import { ref, defineComponent } from 'vue';
 export default defineComponent({
   name: 'QuasarDrawer',
   setup() {
+
     const showDrawer = ref(true);
 
     return {
       showDrawer,
     };
+  
   },
 });
 </script>

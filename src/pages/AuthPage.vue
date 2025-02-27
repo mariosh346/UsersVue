@@ -1,20 +1,44 @@
 <template>
-  <q-page padding class="flex flex-center">
+  <q-page
+    padding
+    class="flex flex-center"
+  >
     <q-card class="auth-card">
-      <q-tabs v-model="tab" class="text-primary" v-if="!showForgotPassword">
-        <q-tab name="login" :label="$t('login')" />
-        <q-tab name="signup" :label="$t('sign_up')" />
+      <q-tabs
+        v-if="!showForgotPassword"
+        v-model="tab"
+        class="text-primary"
+      >
+        <q-tab
+          name="login"
+          :label="$t('login')"
+        />
+        <q-tab
+          name="signup"
+          :label="$t('sign_up')"
+        />
       </q-tabs>
 
       <q-card-section v-if="showForgotPassword">
-        <div class="text-h6">{{ $t('forgot_password') }}</div>
+        <div class="text-h6">
+          {{ $t('forgot_password') }}
+        </div>
       </q-card-section>
 
-      <q-tab-panels v-model="tab" v-if="!showForgotPassword" animated>
+      <q-tab-panels
+        v-if="!showForgotPassword"
+        v-model="tab"
+        animated
+      >
         <q-tab-panel name="login">
           <login-form />
           <div class="text-center q-mt-md">
-            <BaseBtn flat color="primary" :label="$t('forgot_password_question')" @click="showForgotPassword = true" />
+            <BaseBtn
+              flat
+              color="primary"
+              :label="$t('forgot_password_question')"
+              @click="showForgotPassword = true"
+            />
           </div>
         </q-tab-panel>
         <q-tab-panel name="signup">
@@ -45,9 +69,13 @@ const router = useRouter();
 const userStore = useUserStore();
 
 watchEffect(() => {
+
   if (userStore.uid) {
+
     router.push('/');
+  
   }
+
 });
 </script>
 

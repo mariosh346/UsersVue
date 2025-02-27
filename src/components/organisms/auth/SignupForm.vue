@@ -55,15 +55,23 @@ const loading = ref(false);
 const error = ref('');
 
 const handleSubmit = async () => {
+
   error.value = '';
   loading.value = true;
   try {
+
     await signupWithEmail(email.value, password.value);
+  
   } catch (e) {
+
     error.value = e instanceof Error ? e.code : 'An unknown error occurred';
     console.error(e);
+  
   } finally {
+
     loading.value = false;
+  
   }
+
 };
 </script>

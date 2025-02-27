@@ -16,7 +16,6 @@
           clickable
         >
           <q-item-section>{{ $t('item') }} 2</q-item-section>
-          
         </q-item>
       </q-list>
     </q-menu>

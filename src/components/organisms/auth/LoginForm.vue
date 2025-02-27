@@ -40,13 +40,21 @@ const loading = ref(false);
 const error = ref('');
 
 const handleSubmit = async () => {
+
   loading.value = true;
   try {
+
     await signinWithEmail(email.value, password.value);
+  
   } catch (e) {
+
     error.value = e instanceof FirebaseError ? e.code : 'An unknown error occurred';
+  
   } finally {
+
     loading.value = false;
+  
   }
+
 };
 </script>

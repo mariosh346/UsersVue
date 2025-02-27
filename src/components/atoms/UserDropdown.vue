@@ -41,5 +41,5 @@ import { computed } from 'vue';
 const { user } = storeToRefs(useUserStore());
 const userLetter = computed(() => (
   user.value?.displayName || user.value?.email
-  )?.[0]?.toUpperCase());
+)?.[0]?.toUpperCase());
 </script>
