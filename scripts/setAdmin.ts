@@ -1,35 +1,47 @@
 import admin from 'firebase-admin';
-import serviceAccount from '../secret/my-project-users-300618-firebase-adminsdk-aehkh-ea9455aa21.json';
+import dotenv from 'dotenv';
+import serviceAccount from '../secrets/my-project-users-300618-firebase-adminsdk-aehkh-ea9455aa21.json';
+dotenv.config();
+
+// const serviceAccountData = process.env.FIREBASE_SERVICE_ACCOUNT;
+// if (!serviceAccountData) {
+//   console.error('FIREBASE_SERVICE_ACCOUNT is not set in environment');
+//   process.exit(1);
+// }
+// const serviceAccount = JSON.parse(serviceAccountData);
+
+const projectId = process.env.FIREBASE_PROJECT_ID;
+if (!projectId) {
+  console.error('FIREBASE_PROJECT_ID is not set in environment');
+  process.exit(1);
+}
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  projectId: 'my-project-users-300618' // Replace with your Firebase project ID
+  projectId: projectId
 });
 
 const auth = admin.auth();
-const uid = process.argv[2];
+const email = process.argv[2];
 
-if (!uid) {
-
-  console.error('Please provide a UID as a command-line argument');
+if (!email) {
+  console.error('Please provide an email as a command-line argument');
   process.exit(1);
-
 }
 
 const customClaims = {
-  admin: true,
-  editor: true,
+  admin: false,
+  editor: false,
   premium: false
 };
 
-auth.setCustomUserClaims(uid, customClaims)
+auth.getUserByEmail(email)
+  .then(userRecord => {
+    return auth.setCustomUserClaims(userRecord.uid, customClaims);
+  })
   .then(() => {
-
-    console.log('Custom claims set for UID:', uid);
-  
+    console.log('Custom claims set for email:', email);
   })
   .catch((error) => {
-
     console.error('Error setting custom claims:', error);
-  
   });

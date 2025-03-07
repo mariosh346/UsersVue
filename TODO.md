@@ -1,6 +1,5 @@
 Primary
 - admin and driver can have a list of items
-- better rules for prod https://firebase.google.com/docs/rules/insecure-rules#firestore
 - error handling on auth page
 - add state collection for every item
 - add driver
@@ -14,6 +13,7 @@ Secondary
 - voucher checkbox is needed?
 - ssg https://github.com/freddy38510/quasar-app-extension-ssg
 - email autocomplete
+- better rules for prod https://firebase.google.com/docs/rules/insecure-rules#firestore
 
 Bugs
 
