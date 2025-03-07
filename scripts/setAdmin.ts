@@ -1,6 +1,6 @@
 import admin from 'firebase-admin';
 import dotenv from 'dotenv';
-import serviceAccount from '../secrets/my-project-users-300618-firebase-adminsdk-aehkh-ea9455aa21.json';
+import serviceAccount from '../secrets/my-project-users.json';
 dotenv.config();
 
 // const serviceAccountData = process.env.FIREBASE_SERVICE_ACCOUNT;
