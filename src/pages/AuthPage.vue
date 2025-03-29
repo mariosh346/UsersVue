@@ -72,8 +72,7 @@ watchEffect(() => {
 
   if (userStore.uid) {
 
-    router.push('/');
-  
+    void router.push('/');
   }
 
 });
