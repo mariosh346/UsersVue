@@ -11,6 +11,7 @@
         "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
         "dev": "quasar dev",
         "build": "quasar build",
+        "serve": "quasar serve dist",
         "postinstall": "quasar prepare",
         "test:e2e": "cross-env NODE_ENV=test start-test \"quasar dev\" http-get://127.0.0.1:8080 \"cypress open --e2e\"",
         "test:e2e:ci": "cross-env NODE_ENV=test start-test \"quasar dev\" http-get://127.0.0.1:8080 \"cypress run --e2e\"",
@@ -19,7 +20,8 @@
         "test:unit": "vitest",
         "test:unit:ci": "vitest run",
         "lighthouse": "node test/lightHouse.js",
-        "setAdmin": "npx tsx scripts/setAdmin.ts USER_ID_TO_SET_ADMIN"
+        "setAdmin": "npx tsx scripts/setAdmin.ts USER_ID_TO_SET_ADMIN",
+        "deploy": "gh-pages -d dist"
     },
     "dependencies": {
         "@pinia/testing": "^1.0.0",
