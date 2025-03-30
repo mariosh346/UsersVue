@@ -1,10 +1,10 @@
-import { describe, it, expect, beforeEach } from 'vitest'
-import { shallowMount } from '@vue/test-utils'
-import BaseSelect from "../BaseSelect.vue"
+import { describe, it, expect, beforeEach } from 'vitest';
+import { shallowMount } from '@vue/test-utils';
+import BaseSelect from "../BaseSelect.vue";
 
 describe('BaseSelect', () => {
-  const options = [{ value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }]
-  let wrapper: ReturnType<typeof shallowMount>
+  const options = [{ value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }];
+  let wrapper: ReturnType<typeof shallowMount>;
   const createWrapper = () => shallowMount(BaseSelect, {
     props: {
       modelValue: 'a',
@@ -14,17 +14,17 @@ describe('BaseSelect', () => {
     global: {
       stubs: ['q-select']
     }
-  })
+  });
 
   beforeEach(() => {
-    wrapper = createWrapper()
-  })
+    wrapper = createWrapper();
+  });
 
   it('renders and selects correct option', () => {
-    expect(wrapper.exists()).toBe(true)
-  })
+    expect(wrapper.exists()).toBe(true);
+  });
 
   it('matches snapshot', () => {
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});
