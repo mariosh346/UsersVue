@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UserDropdown > matches snapshot 1`] = `"<q-btn-dropdown-stub replace="false" disable="false" type="button" flat="true" outline="false" push="false" unelevated="true" square="false" rounded="true" glossy="false" fab="false" fabmini="false" nocaps="false" nowrap="false" dense="false" ripple="true" align="center" stack="false" stretch="false" transitionshow="fade" transitionhide="fade" transitionduration="300" modelvalue="false" split="false" cover="false" persistent="false" noroutedismiss="false" autoclose="false" menuanchor="bottom end" menuself="top end" disablemainbtn="false" disabledropdown="false" noiconanimation="false"></q-btn-dropdown-stub>"`;

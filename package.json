@@ -22,6 +22,7 @@
         "setAdmin": "npx tsx scripts/setAdmin.ts USER_ID_TO_SET_ADMIN"
     },
     "dependencies": {
+        "@pinia/testing": "^1.0.0",
         "@quasar/extras": "^1.16.4",
         "axios": "^1.2.1",
         "chrome-launcher": "^1.1.2",

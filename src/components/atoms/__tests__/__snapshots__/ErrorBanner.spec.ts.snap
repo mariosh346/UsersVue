@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ErrorBanner > matches snapshot 1`] = `"<q-banner-stub inlineactions="true" dense="false" rounded="false" class="text-white bg-red"></q-banner-stub>"`;

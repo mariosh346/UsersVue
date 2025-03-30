@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ServiceStatus > matches snapshot for active false 1`] = `"<q-td-stub autowidth="false" nohover="false"></q-td-stub>"`;

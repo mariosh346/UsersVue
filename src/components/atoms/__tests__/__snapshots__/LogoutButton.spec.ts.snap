@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LogoutButton > matches snapshot 1`] = `"<base-btn-stub color="secondary" replace="false" outline="false" flat="true" unelevated="true" rounded="false" push="false" square="false" glossy="false" fab="false" fabmini="false" nocaps="false" nowrap="false" dense="false" ripple="false" stack="false" stretch="false" loading="false" disable="false" round="false" darkpercentage="false"></base-btn-stub>"`;

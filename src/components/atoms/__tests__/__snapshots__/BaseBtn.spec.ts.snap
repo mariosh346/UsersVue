@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BaseBtn > matches snapshot 1`] = `"<q-btn-stub color="primary" replace="false" disable="false" type="button" flat="false" outline="false" push="false" unelevated="false" square="false" rounded="false" glossy="false" fab="false" fabmini="false" nocaps="false" nowrap="false" dense="false" ripple="true" align="center" stack="false" stretch="false" loading="false" round="false" darkpercentage="false"></q-btn-stub>"`;
