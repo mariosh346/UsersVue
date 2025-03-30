@@ -6,8 +6,7 @@ describe('BaseInput', () => {
   const inputProps = {
     modelValue: 'test',
     label: 'Input Label',
-    rules: [],
-    type: 'text'
+    rules: []
   };
   let wrapper: ReturnType<typeof shallowMount>;
   const createWrapper = () => shallowMount(BaseInput, {
