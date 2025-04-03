@@ -17,7 +17,9 @@ describe('QuasarPageSticky', () => {
       .should(($el) => {
 
         const rect = $el?.[0]?.getBoundingClientRect();
-        if (!rect) throw 'no rect';
+        if (!rect) {
+          throw new Error('no rect');
+        }
         expect(rect.bottom).to.equal(window.innerHeight - 18);
         expect(rect.right).to.equal(window.innerWidth - 18);
 

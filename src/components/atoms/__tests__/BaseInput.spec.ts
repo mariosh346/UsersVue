@@ -10,10 +10,7 @@ describe('BaseInput', () => {
   };
   let wrapper: ReturnType<typeof shallowMount>;
   const createWrapper = () => shallowMount(BaseInput, {
-    props: inputProps,
-    global: {
-      stubs: ['q-input']
-    }
+    props: inputProps
   });
 
   beforeEach(() => {
