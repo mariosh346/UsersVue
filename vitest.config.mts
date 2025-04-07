@@ -8,7 +8,7 @@ import { resolve } from 'path';
 export default defineConfig({
   test: {
     environment: 'happy-dom',
-    setupFiles: 'test/vitest/setup-file.ts',
+    setupFiles: 'test/vitest/setup-file.js',
     include: [
       // Matches vitest tests in any subfolder of 'src' or into 'test/vitest/__tests__'
       // Matches all files with extension 'js', 'jsx', 'ts' and 'tsx'

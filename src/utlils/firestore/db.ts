@@ -1,15 +1,30 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, doc } from 'firebase/firestore';
 
+function getEnvVar(key: string): string {
+  const value = process.env[key];
+  if (typeof value !== 'string') {
+    throw new Error(`Environment variable ${key} must be a string`);
+  }
+  return value;
+}
+
 const firebaseConfig = {
-  apiKey: "AIzaSyByqnFhzkTWWLjWczPN41c-5IbfJn3hRuI",
-  authDomain: "my-project-users-300618.firebaseapp.com",
-  projectId: "my-project-users-300618",
-  storageBucket: "my-project-users-300618.firebasestorage.app",
-  messagingSenderId: "304981610003",
-  appId: "1:304981610003:web:1dd8d65d828e65664d39e6",
-  measurementId: "G-ZYYQCWBFZG"
+  apiKey: getEnvVar('FIREBASE_API_KEY'),
+  authDomain: getEnvVar('FIREBASE_AUTH_DOMAIN'),
+  projectId: getEnvVar('FIREBASE_PROJECT_ID'),
+  storageBucket: getEnvVar('FIREBASE_STORAGE_BUCKET'),
+  messagingSenderId: getEnvVar('FIREBASE_MESSAGING_SENDER_ID'),
+  appId: getEnvVar('FIREBASE_APP_ID'),
+  measurementId: getEnvVar('FIREBASE_MEASUREMENT_ID')
 };
+
+
+if (!firebaseConfig.apiKey || !firebaseConfig.authDomain || !firebaseConfig.projectId ||
+   !firebaseConfig.storageBucket || !firebaseConfig.messagingSenderId ||
+    !firebaseConfig.appId || !firebaseConfig.measurementId) {
+  throw new Error('Firebase configuration is missing some required fields.');
+}
 
 export const firebaseApp = initializeApp(firebaseConfig);
 
