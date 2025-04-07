@@ -60,6 +60,9 @@ importers:
       '@quasar/app-vite':
         specifier: ^2.2.0
         version: 2.2.0(@types/node@20.17.17)(eslint@9.19.0)(pinia@2.3.1(typescript@5.5.4)(vue@3.5.13(typescript@5.5.4)))(quasar@2.17.7)(rollup@4.34.4)(terser@5.39.0)(tsx@4.19.3)(typescript@5.5.4)(vue-router@4.5.0(vue@3.5.13(typescript@5.5.4)))(vue@3.5.13(typescript@5.5.4))(yaml@2.7.0)
+      '@quasar/cli':
+        specifier: ^2.5.0
+        version: 2.5.0(@types/express@4.17.21)
       '@quasar/quasar-app-extension-testing-e2e-cypress':
         specifier: ^6.1.0
         version: 6.1.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@13.17.0)(eslint-plugin-cypress@2.15.2(eslint@9.19.0))(vite@5.4.14(@types/node@20.17.17)(sass-embedded@1.83.4)(terser@5.39.0))(webpack@5.97.1)
