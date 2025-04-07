@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@pinia/testing':
-        specifier: ^0
-        version: 0.1.7(pinia@2.3.1(typescript@5.5.4)(vue@3.5.13(typescript@5.5.4)))(vue@3.5.13(typescript@5.5.4))
       '@quasar/extras':
         specifier: ^1.16.4
         version: 1.16.16
@@ -57,6 +54,9 @@ importers:
       '@intlify/unplugin-vue-i18n':
         specifier: ^2.0.0
         version: 2.0.0(rollup@4.34.4)(vue-i18n@9.14.3(vue@3.5.13(typescript@5.5.4)))
+      '@pinia/testing':
+        specifier: ^0
+        version: 0.1.7(pinia@2.3.1(typescript@5.5.4)(vue@3.5.13(typescript@5.5.4)))(vue@3.5.13(typescript@5.5.4))
       '@quasar/app-vite':
         specifier: ^2.2.0
         version: 2.2.0(@types/node@20.17.17)(eslint@9.19.0)(pinia@2.3.1(typescript@5.5.4)(vue@3.5.13(typescript@5.5.4)))(quasar@2.17.7)(rollup@4.34.4)(terser@5.39.0)(tsx@4.19.3)(typescript@5.5.4)(vue-router@4.5.0(vue@3.5.13(typescript@5.5.4)))(vue@3.5.13(typescript@5.5.4))(yaml@2.7.0)
