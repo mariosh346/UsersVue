@@ -23,9 +23,11 @@ export default defineConfig({
     }]
   },
   plugins: [
+    // @ts-expect-error there is an issue to vite compat with vitest
     vue({
       template: { transformAssetUrls },
     }),
+    // @ts-expect-error there is an issue to vite compat with vitest
     quasar({
       sassVariables: 'src/css/quasar.variables.scss',
     }),
