@@ -76,16 +76,7 @@ export default defineConfig((ctx) => {
       // polyfillModulePreload: true,
       // distDir
 
-      extendViteConf () {
-        return {
-          build: {
-            // Exclude files with the *.cy.tsx extension
-            rollupOptions: {
-              external: ['functions/**', '**.cy.ts', 'vitest.config.*'],
-            }
-          }
-        };
-      },
+      // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
 
       vitePlugins: [
@@ -125,10 +116,10 @@ export default defineConfig((ctx) => {
                 if (!match.includes('lang=')) {
 
                   return match.replace('<script', '<script lang="ts"');
-
+                
                 }
                 return match;
-
+              
               });
 
               // Add lang="scss" to <style> blocks
@@ -137,15 +128,15 @@ export default defineConfig((ctx) => {
                 if (!match.includes('lang=')) {
 
                   return match.replace('<style', '<style scoped lang="scss"');
-
+                
                 }
                 return match;
-
+              
               });
-
+            
             }
             return code;
-
+          
           },
         },
       ]
