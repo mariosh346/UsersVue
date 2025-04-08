@@ -1,3 +1,3 @@
 #!/bin/bash
 npm install -g pnpm
-pnpm ci
+pnpm i
