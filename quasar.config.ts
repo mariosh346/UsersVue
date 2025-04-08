@@ -47,8 +47,17 @@ export default defineConfig((ctx) => {
 
       typescript: {
         strict: true,
-        vueShim: true
-        // extendTsConfig (tsConfig) {}
+        vueShim: true,
+        extendTsConfig (tsConfig) {
+          return {
+            ...tsConfig,
+            exclude: [
+              'functions/**',
+              '**/*.cy.tsx',
+              '**/__tests__/**'
+            ]
+          };
+        }
       },
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
