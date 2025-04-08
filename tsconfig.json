@@ -3,5 +3,6 @@
   "exclude": [
     "functions/**",
     "**/*.cy.tsx",
+    "vitest.config.*",
   ]
 }
