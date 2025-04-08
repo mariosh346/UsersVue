@@ -3,6 +3,5 @@
   "exclude": [
     "functions/**",
     "**/*.cy.tsx",
-    "**/__tests__/**"
   ]
 }
