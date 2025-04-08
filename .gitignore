@@ -37,3 +37,5 @@ secrets/
 
 .nyc_output
 coverage/
+
+/.firebase
