@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, doc } from 'firebase/firestore';
 
-function getEnvVar(key: string): string {
+export function getEnvVar(key: string): string {
   const value = process.env[key] || import.meta.env[key];
   if (typeof value !== 'string') {
     throw new Error(`Environment variable ${key} must be a string`);
