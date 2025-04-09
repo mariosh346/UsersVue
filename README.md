@@ -1,6 +1,7 @@
 # Users vue (users-vue)
 
 A base app with users
+Deployed on google firebase hosting at https://my-project-users-300618.web.app/
 
 ## Install the dependencies
 ```bash
@@ -23,6 +24,3 @@ pnpm run lint
 ```bash
 pnpm run build
 ```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
