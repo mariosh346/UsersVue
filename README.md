@@ -24,3 +24,9 @@ pnpm run lint
 ```bash
 pnpm run build
 ```
+
+### Commit
+1. create ssh keys https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+2. git config --global gpg.format ssh
+3. git config --global user.signingkey C:\Users\mario\.ssh\id_XXXX.pub
+4. Add the .pub data to https://github.com/settings/keys as signing key
