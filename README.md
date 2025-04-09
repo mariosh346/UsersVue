@@ -34,3 +34,6 @@ pnpm run build
 git config --global commit.gpgsign true
 git config --global tag.gpgSign true
 ```
+6. open the local dev tool's console, you’ll see: AppCheck debug token: "123a4567-b89c-12d3-e456-789012345678".
+In the App Check section of the Firebase console, choose Manage debug tokens from your app's overflow menu. Then, register the debug token in the previous step.
+https://firebase.google.com/docs/app-check/web/debug-provider#localhost
