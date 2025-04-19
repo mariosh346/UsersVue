@@ -99,7 +99,7 @@ jobs:
           echo "VITE_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}" >> .env.production
           echo "VITE_FIREBASE_APP_ID=${{ secrets.VITE_FIREBASE_APP_ID }}" >> .env.production
           echo "VITE_FIREBASE_MEASUREMENT_ID=${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}" >> .env.production
-          echo "VITE_FIREBASE_SERVICE_ACCOUNT=${{ secrets.VITE_FIREBASE_SERVICE_ACCOUNT }}" >> .env.production
+          echo "VITE_CAPTCHA_SITE_KEY=${{ secrets.VITE_CAPTCHA_SITE_KEY }}" >> .env.production
       - name: build environment
         run: pnpm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0

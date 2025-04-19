@@ -30,7 +30,11 @@ pnpm run build
 2. git config --global gpg.format ssh
 3. git config --global user.signingkey C:\Users\mario\.ssh\id_XXXX.pub
 4. Add the .pub data to https://github.com/settings/keys as signing key
-5. Auto sign all commits ```bash
+5. Auto sign all commits 
+```bash
 git config --global commit.gpgsign true
 git config --global tag.gpgSign true
 ```
+6. open the local dev tool's console, you’ll see: AppCheck debug token: "123a4567-b89c-12d3-e456-789012345678".
+In the App Check section of the Firebase console, choose Manage debug tokens from your app's overflow menu. Then, register the debug token in the previous step.
+https://firebase.google.com/docs/app-check/web/debug-provider#localhost
