@@ -1,7 +1,7 @@
 # Users vue (users-vue)
 
-A base app with users
-Deployed on google firebase hosting at https://my-project-users-300618.web.app/
+A base app with users based on Vue, Typescript, Quasar, Cypress, Vitest, Github Actions and Firebase
+Deploy after every commit on google firebase hosting at https://my-project-users-300618.web.app/ with the help of Github Actions
 
 ## Install the dependencies
 ```bash
