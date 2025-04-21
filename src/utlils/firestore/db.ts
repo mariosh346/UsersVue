@@ -27,13 +27,6 @@ const firebaseConfig = {
   measurementId: getEnvVarString('VITE_FIREBASE_MEASUREMENT_ID')
 };
 
-
-if (!firebaseConfig.apiKey || !firebaseConfig.authDomain || !firebaseConfig.projectId ||
-   !firebaseConfig.storageBucket || !firebaseConfig.messagingSenderId ||
-    !firebaseConfig.appId || !firebaseConfig.measurementId) {
-  throw new Error('Firebase configuration is missing some required fields.');
-}
-
 export const firebaseApp = initializeApp(firebaseConfig);
 (self as Window & typeof globalThis & { FIREBASE_APPCHECK_DEBUG_TOKEN: string | boolean })
   .FIREBASE_APPCHECK_DEBUG_TOKEN = !getEnvVar('PROD') && getEnvVarString('VITE_APP_CHECK_DEBUG_TOKEN');
