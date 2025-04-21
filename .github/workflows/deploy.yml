@@ -51,7 +51,7 @@ jobs:
         # if: failure()
         with:
           name: cypress-screenshots
-          path: cypress/screenshots
+          path: test/cypress
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
       - uses: actions/upload-artifact@v4
         with:
