@@ -45,6 +45,12 @@ jobs:
           build: pnpm build
           start: pnpm serve
           config: 'baseUrl=http://localhost:4000'
+      - name: Upload cypress artifacts
+        uses: actions/upload-artifact@latest
+        if: failure()
+        with:
+            name: cypress-artifacts
+            path: test/cypress
 
   # build:
   #   runs-on: ubuntu-latest
