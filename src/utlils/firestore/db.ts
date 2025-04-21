@@ -2,8 +2,15 @@ import { initializeApp } from 'firebase/app';
 import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 import { getFirestore, collection, doc } from 'firebase/firestore';
 
-export function getEnvVar(key: string): string {
+export function getEnvVar(key: string): NonNullable<unknown> {
   const value = process.env[key] || import.meta.env[key];
+  if (typeof value === 'undefined') {
+    throw new Error(`Environment variable ${key} must exist`);
+  }
+  return value;
+}
+export function getEnvVarString(key: string): string {
+  const value = getEnvVar(key);
   if (typeof value !== 'string') {
     throw new Error(`Environment variable ${key} must be a string`);
   }
@@ -11,13 +18,13 @@ export function getEnvVar(key: string): string {
 }
 
 const firebaseConfig = {
-  apiKey: getEnvVar('VITE_FIREBASE_API_KEY'),
-  authDomain: getEnvVar('VITE_FIREBASE_AUTH_DOMAIN'),
-  projectId: getEnvVar('VITE_FIREBASE_PROJECT_ID'),
-  storageBucket: getEnvVar('VITE_FIREBASE_STORAGE_BUCKET'),
-  messagingSenderId: getEnvVar('VITE_FIREBASE_MESSAGING_SENDER_ID'),
-  appId: getEnvVar('VITE_FIREBASE_APP_ID'),
-  measurementId: getEnvVar('VITE_FIREBASE_MEASUREMENT_ID')
+  apiKey: getEnvVarString('VITE_FIREBASE_API_KEY'),
+  authDomain: getEnvVarString('VITE_FIREBASE_AUTH_DOMAIN'),
+  projectId: getEnvVarString('VITE_FIREBASE_PROJECT_ID'),
+  storageBucket: getEnvVarString('VITE_FIREBASE_STORAGE_BUCKET'),
+  messagingSenderId: getEnvVarString('VITE_FIREBASE_MESSAGING_SENDER_ID'),
+  appId: getEnvVarString('VITE_FIREBASE_APP_ID'),
+  measurementId: getEnvVarString('VITE_FIREBASE_MEASUREMENT_ID')
 };
 
 
@@ -29,9 +36,9 @@ if (!firebaseConfig.apiKey || !firebaseConfig.authDomain || !firebaseConfig.proj
 
 export const firebaseApp = initializeApp(firebaseConfig);
 (self as Window & typeof globalThis & { FIREBASE_APPCHECK_DEBUG_TOKEN: string | boolean })
-  .FIREBASE_APPCHECK_DEBUG_TOKEN = !getEnvVar('PROD') && getEnvVar('VITE_APP_CHECK_DEBUG_TOKEN');
+  .FIREBASE_APPCHECK_DEBUG_TOKEN = !getEnvVar('PROD') && getEnvVarString('VITE_APP_CHECK_DEBUG_TOKEN');
 initializeAppCheck(firebaseApp, {
-  provider: new ReCaptchaV3Provider(getEnvVar('VITE_CAPTCHA_SITE_KEY')),
+  provider: new ReCaptchaV3Provider(getEnvVarString('VITE_CAPTCHA_SITE_KEY')),
   isTokenAutoRefreshEnabled: true,
 });
 
