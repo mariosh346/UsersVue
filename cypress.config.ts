@@ -1,7 +1,6 @@
 import registerCodeCoverageTasks from '@cypress/code-coverage/task';
 import { injectQuasarDevServerConfig } from '@quasar/quasar-app-extension-testing-e2e-cypress/cct-dev-server';
 import { defineConfig } from 'cypress';
-import installLogsPrinter from "cypress-terminal-report/src/installLogsPrinter";
 import { BASE_URL } from './src/constants/base';
 
 export default defineConfig({
@@ -13,7 +12,7 @@ export default defineConfig({
   defaultCommandTimeout: 10000,
   e2e: {
     setupNodeEvents(on, config) {
-      installLogsPrinter(on, {});
+
       registerCodeCoverageTasks(on, config);
       return config;
 
