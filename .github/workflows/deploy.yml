@@ -54,7 +54,7 @@ jobs:
           path: test/cypress/screenshots
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
       - name: Upload cypress artifacts
-          uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-videos
