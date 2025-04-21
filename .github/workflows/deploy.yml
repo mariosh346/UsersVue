@@ -48,7 +48,7 @@ jobs:
       - name: Upload cypress artifacts
         uses: actions/upload-artifact@v4
         # add the line below to store screenshots only on failures
-        # if: failure()
+        if: failure()
         with:
           name: cypress-screenshots
           path: test/cypress
