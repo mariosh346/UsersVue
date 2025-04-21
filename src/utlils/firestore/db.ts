@@ -28,8 +28,8 @@ if (!firebaseConfig.apiKey || !firebaseConfig.authDomain || !firebaseConfig.proj
 }
 
 export const firebaseApp = initializeApp(firebaseConfig);
-(self as Window & typeof globalThis & { FIREBASE_APPCHECK_DEBUG_TOKEN: string })
-  .FIREBASE_APPCHECK_DEBUG_TOKEN = getEnvVar('VITE_APP_CHECK_DEBUG_TOKEN');
+(self as Window & typeof globalThis & { FIREBASE_APPCHECK_DEBUG_TOKEN: string | boolean })
+  .FIREBASE_APPCHECK_DEBUG_TOKEN = getEnvVar('NODE_ENV') !== 'production' && getEnvVar('VITE_APP_CHECK_DEBUG_TOKEN');
 initializeAppCheck(firebaseApp, {
   provider: new ReCaptchaV3Provider(getEnvVar('VITE_CAPTCHA_SITE_KEY')),
   isTokenAutoRefreshEnabled: true,
