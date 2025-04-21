@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 import { getFirestore, collection, doc } from 'firebase/firestore';
 
 export function getEnvVar(key: string): string {
@@ -27,6 +28,12 @@ if (!firebaseConfig.apiKey || !firebaseConfig.authDomain || !firebaseConfig.proj
 }
 
 export const firebaseApp = initializeApp(firebaseConfig);
+(self as Window & typeof globalThis & { FIREBASE_APPCHECK_DEBUG_TOKEN: string })
+  .FIREBASE_APPCHECK_DEBUG_TOKEN = getEnvVar('VITE_APP_CHECK_DEBUG_TOKEN');
+initializeAppCheck(firebaseApp, {
+  provider: new ReCaptchaV3Provider(getEnvVar('VITE_CAPTCHA_SITE_KEY')),
+  isTokenAutoRefreshEnabled: true,
+});
 
 // used for the firestore refs
 export const db = getFirestore(firebaseApp);

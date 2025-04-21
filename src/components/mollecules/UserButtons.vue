@@ -1,7 +1,10 @@
 <template>
   <template v-if="!uid">
     <login-button />
-    <BaseBtn @click="$router.push('/auth')">
+    <BaseBtn
+      data-cy="auth-button"
+      @click="$router.push('/auth')"
+    >
       Login with email
     </BaseBtn>
   </template>

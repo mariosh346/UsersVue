@@ -1,5 +1,8 @@
 <template>
-  <q-form @submit="handleSubmit">
+  <q-form
+    data-cy="signup"
+    @submit="handleSubmit"
+  >
     <base-input
       v-model="email"
       type="email"
