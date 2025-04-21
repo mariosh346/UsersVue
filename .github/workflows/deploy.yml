@@ -41,9 +41,9 @@ jobs:
         run: npx cypress install
       - name: Cypress run
         uses: cypress-io/github-action@v6
-        # with:
-        #   build: pnpm build
-        #   start: pnpm preview --port 5173
+        with:
+          build: pnpm build
+          start: pnpm serve
           # config: 'baseUrl=http://localhost:5173/platform-catApi-react'
 
   # build:
