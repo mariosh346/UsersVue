@@ -1,7 +1,4 @@
 <template>
-  <h2>
-    {{ $t('Επεξεργασία Καταχώρησης') }}
-  </h2>
   <UserItem
     :item="item"
     :error="error"

@@ -1,4 +1,7 @@
 <template>
+  <h2 class="pb-8">
+    {{ buttonLabel }}
+  </h2>
   <q-form
     class="q-gutter-md"
     @submit="onSubmit"
@@ -174,7 +177,7 @@ const copyForm = (newVal: UserCollectionForm) => {
   if (newVal.id) {
 
     copied.id = newVal.id;
-  
+
   }
   return copied;
 

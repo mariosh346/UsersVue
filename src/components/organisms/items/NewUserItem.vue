@@ -1,7 +1,4 @@
 <template>
-  <h2>
-    {{ $t('Νέα Καταχωρηση') }}
-  </h2>
   <UserItem
     :item="item"
     :error="error"
@@ -50,16 +47,16 @@ const onSubmit = async (form: UserCollectionForm) => {
     //   dateUpdated: serverTimestamp(),
     //   collections: [...userStore.user.value.collections, refCollection.id]
     // })
-  
+
   } catch (e) {
 
     console.error('Error adding document: ', e);
     error.value = t('Προέκυψε σφάλμα κατά την προσθήκη της συλλογή');
-  
+
   } finally {
 
     loading.value = false;
-  
+
   }
 
 };

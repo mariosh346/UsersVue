@@ -17,7 +17,7 @@
 
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
+      :show-if-above="linksList.length > 0"
       bordered
     >
       <q-list v-if="linksList.length > 0">

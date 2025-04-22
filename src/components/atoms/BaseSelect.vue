@@ -5,6 +5,7 @@
     :label="label"
     filled
     v-bind="$attrs"
+    class="max-w-lg"
     @update:model-value="$emit('update:modelValue', $event.value)"
   />
 </template>

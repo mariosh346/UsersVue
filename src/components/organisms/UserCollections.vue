@@ -8,6 +8,7 @@
       bordered
       :pagination="pagination"
       no-data-label="No orders found for this user."
+      class="max-w-screen mb-8"
     >
       <!-- <template #body-cell-pickupFromStore="props">
         <ServiceStatus
@@ -105,7 +106,7 @@ const setSelectedItem = (key: string) => {
   if (!item) {
 
     throw new Error("Item not found");
-  
+
   }
   selectedItem.value = item;
 
