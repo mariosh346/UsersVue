@@ -32,7 +32,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="pb-2 pl-4 lg:px-10">
       <router-view />
     </q-page-container>
   </q-layout>
