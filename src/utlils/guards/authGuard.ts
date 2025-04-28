@@ -16,3 +16,19 @@ export const requireNoAuth: NavigationGuard = (_to, _from, next) => {
   }
 
 };
+
+export const requireAuth: NavigationGuard = (_to, _from, next) => {
+
+  const userStore = useUserStore();
+
+  if (userStore.uid) {
+
+    next();
+
+  } else {
+
+    next('auth');
+
+  }
+
+};

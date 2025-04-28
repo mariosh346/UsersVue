@@ -1,10 +1,11 @@
 import type { RouteRecordRaw } from 'vue-router';
-import { requireNoAuth } from 'src/utlils/guards/authGuard';
+import { requireAuth, requireNoAuth } from 'src/utlils/guards/authGuard';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
+    beforeEnter: requireAuth,
     children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
   },
   {
