@@ -40,6 +40,7 @@
               @click="showForgotPassword = true"
             />
           </div>
+          <LoginButton class="q-mt-md full-width" />
         </q-tab-panel>
         <q-tab-panel name="signup">
           <signup-form />
@@ -61,6 +62,7 @@ import LoginForm from 'src/components/organisms/auth/LoginForm.vue';
 import SignupForm from 'src/components/organisms/auth/SignupForm.vue';
 import ForgotPasswordForm from 'src/components/organisms/auth/ForgotPasswordForm.vue';
 import BaseBtn from 'src/components/atoms/BaseBtn.vue';
+import LoginButton from 'src/components/atoms/login/LoginButton.vue';
 
 const tab = ref('login');
 const showForgotPassword = ref(false);
@@ -81,6 +83,6 @@ watchEffect(() => {
 <style scoped>
 .auth-card {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
 }
 </style>

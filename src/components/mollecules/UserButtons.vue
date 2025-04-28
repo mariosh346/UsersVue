@@ -1,12 +1,15 @@
 <template>
   <template v-if="!uid">
-    <login-button />
     <BaseBtn
+      flat
+      round
+      dense
+      icon="account_circle"
+      color="accent"
+      size="lg"
       data-cy="auth-button"
       @click="$router.push('/auth')"
-    >
-      Login with email
-    </BaseBtn>
+    />
   </template>
   <div v-else>
     <user-dropdown />
@@ -15,7 +18,6 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import LoginButton from 'src/components/atoms/login/LoginButton.vue';
 import { useUserStore } from 'src/stores/userStore';
 import BaseBtn from '../atoms/BaseBtn.vue';
 import UserDropdown from 'src/components/atoms/UserDropdown.vue';

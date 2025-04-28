@@ -11,24 +11,22 @@ async function signinRedirect() {
   try {
 
     await signinPopup();
-  
+
   } catch (e: unknown) {
 
     error.value = e;
     console.error('Signin error:', e);
-  
+
   }
 
 }
 </script>
 
 <template>
-  <main>
-    <BaseBtn
-      icon="login"
-      @click="signinRedirect()"
-    >
-      SignIn with Google
-    </BaseBtn>
-  </main>
+  <BaseBtn
+    icon="login"
+    @click="signinRedirect()"
+  >
+    {{ $t('SignIn with Google') }}
+  </BaseBtn>
 </template>

@@ -8,6 +8,7 @@
     :round="round"
     :unelevated="unelevated"
     :color="color || 'primary'"
+    :size="size"
     v-bind="$attrs"
     @click="$emit('click', $event)"
   >
