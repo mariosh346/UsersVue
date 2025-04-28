@@ -65,7 +65,7 @@ importers:
         version: 2.5.0(@types/express@4.17.21)
       '@quasar/quasar-app-extension-testing-e2e-cypress':
         specifier: ^6.1.0
-        version: 6.1.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@14.3.1)(eslint-plugin-cypress@2.15.2(eslint@9.19.0(jiti@2.4.2)))(vite@5.4.14(@types/node@20.17.17)(lightningcss@1.29.2)(sass-embedded@1.83.4)(terser@5.39.0))(webpack@5.97.1)
+        version: 6.1.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@14.3.2)(eslint-plugin-cypress@2.15.2(eslint@9.19.0(jiti@2.4.2)))(vite@5.4.14(@types/node@20.17.17)(lightningcss@1.29.2)(sass-embedded@1.83.4)(terser@5.39.0))(webpack@5.97.1)
       '@quasar/quasar-app-extension-testing-unit-vitest':
         specifier: ^1.1.0
         version: 1.1.0(@vue/test-utils@2.4.6)(quasar@2.17.7)(typescript@5.5.4)(vite@5.4.14(@types/node@20.17.17)(lightningcss@1.29.2)(sass-embedded@1.83.4)(terser@5.39.0))(vitest@2.1.9(@types/node@20.17.17)(happy-dom@15.11.7)(lightningcss@1.29.2)(sass-embedded@1.83.4)(terser@5.39.0))(vue@3.5.13(typescript@5.5.4))
@@ -85,8 +85,8 @@ importers:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.3)
       cypress:
-        specifier: ^14.3.1
-        version: 14.3.1
+        specifier: ^14.3.2
+        version: 14.3.2
       eslint:
         specifier: ^9.14.0
         version: 9.19.0(jiti@2.4.2)
@@ -3187,8 +3187,8 @@ packages:
   csv-parse@5.6.0:
     resolution: {integrity: sha512-l3nz3euub2QMg5ouu5U09Ew9Wf6/wQ8I++ch1loQ0ljmzhmfZYrH9fflS22i/PQEvsPvxCwxgz5q7UB8K1JO4Q==}
 
-  cypress@14.3.1:
-    resolution: {integrity: sha512-/2q06qvHMK3PNiadnRW1Je0lJ43gAFPQJUAK2zIxjr22kugtWxVQznTBLVu1AvRH+RP3oWZhCdWqiEi+0NuqCg==}
+  cypress@14.3.2:
+    resolution: {integrity: sha512-n+yGD2ZFFKgy7I3YtVpZ7BcFYrrDMcKj713eOZdtxPttpBjCyw/R8dLlFSsJPouneGN7A/HOSRyPJ5+3/gKDoA==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
@@ -7811,14 +7811,14 @@ snapshots:
 
   '@cush/relative@1.0.0': {}
 
-  '@cypress/code-coverage@3.13.11(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@14.3.1)(webpack@5.97.1)':
+  '@cypress/code-coverage@3.13.11(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@14.3.2)(webpack@5.97.1)':
     dependencies:
       '@babel/core': 7.26.7
       '@babel/preset-env': 7.26.7(@babel/core@7.26.7)
       '@cypress/webpack-preprocessor': 6.0.2(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(webpack@5.97.1)
       babel-loader: 9.2.1(@babel/core@7.26.7)(webpack@5.97.1)
       chalk: 4.1.2
-      cypress: 14.3.1
+      cypress: 14.3.2
       dayjs: 1.11.13
       debug: 4.4.0(supports-color@8.1.1)
       execa: 4.1.0
@@ -8649,7 +8649,7 @@ snapshots:
   '@grpc/grpc-js@1.9.15':
     dependencies:
       '@grpc/proto-loader': 0.7.13
-      '@types/node': 20.17.17
+      '@types/node': 20.17.30
 
   '@grpc/proto-loader@0.7.13':
     dependencies:
@@ -8965,11 +8965,11 @@ snapshots:
 
   '@quasar/extras@1.16.16': {}
 
-  '@quasar/quasar-app-extension-testing-e2e-cypress@6.1.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@14.3.1)(eslint-plugin-cypress@2.15.2(eslint@9.19.0(jiti@2.4.2)))(vite@5.4.14(@types/node@20.17.17)(lightningcss@1.29.2)(sass-embedded@1.83.4)(terser@5.39.0))(webpack@5.97.1)':
+  '@quasar/quasar-app-extension-testing-e2e-cypress@6.1.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@14.3.2)(eslint-plugin-cypress@2.15.2(eslint@9.19.0(jiti@2.4.2)))(vite@5.4.14(@types/node@20.17.17)(lightningcss@1.29.2)(sass-embedded@1.83.4)(terser@5.39.0))(webpack@5.97.1)':
     dependencies:
-      '@cypress/code-coverage': 3.13.11(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@14.3.1)(webpack@5.97.1)
+      '@cypress/code-coverage': 3.13.11(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1))(cypress@14.3.2)(webpack@5.97.1)
       cross-env: 7.0.3
-      cypress: 14.3.1
+      cypress: 14.3.2
       lodash: 4.17.21
       nyc: 15.1.0
       start-server-and-test: 2.0.10
@@ -9220,7 +9220,7 @@ snapshots:
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 20.17.17
+      '@types/node': 20.17.30
 
   '@types/cordova@11.0.3': {}
 
@@ -9275,7 +9275,7 @@ snapshots:
   '@types/jsonwebtoken@9.0.9':
     dependencies:
       '@types/ms': 2.1.0
-      '@types/node': 20.17.17
+      '@types/node': 20.17.30
 
   '@types/long@4.0.2': {}
 
@@ -9285,7 +9285,7 @@ snapshots:
 
   '@types/node-forge@1.3.11':
     dependencies:
-      '@types/node': 20.17.17
+      '@types/node': 20.17.30
 
   '@types/node@20.17.17':
     dependencies:
@@ -9306,14 +9306,14 @@ snapshots:
   '@types/request@2.48.12':
     dependencies:
       '@types/caseless': 0.12.5
-      '@types/node': 20.17.17
+      '@types/node': 20.17.30
       '@types/tough-cookie': 4.0.5
       form-data: 2.5.3
 
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 20.17.17
+      '@types/node': 20.17.30
 
   '@types/serve-static@1.15.7':
     dependencies:
@@ -9331,7 +9331,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 20.17.17
+      '@types/node': 20.17.30
     optional: true
 
   '@typescript-eslint/eslint-plugin@8.23.0(@typescript-eslint/parser@8.23.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.5.4))(eslint@9.19.0(jiti@2.4.2))(typescript@5.5.4)':
@@ -10404,7 +10404,7 @@ snapshots:
 
   csv-parse@5.6.0: {}
 
-  cypress@14.3.1:
+  cypress@14.3.2:
     dependencies:
       '@cypress/request': 3.0.8
       '@cypress/xvfb': 1.2.4(supports-color@8.1.1)
@@ -11581,7 +11581,7 @@ snapshots:
       extend: 3.0.2
       gaxios: 6.7.1(encoding@0.1.13)
       google-auth-library: 9.15.1(encoding@0.1.13)
-      qs: 6.13.1
+      qs: 6.14.0
       url-template: 2.0.8
       uuid: 9.0.1
     transitivePeerDependencies:
@@ -13143,7 +13143,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.17.17
+      '@types/node': 20.17.30
       long: 5.2.4
 
   proxy-addr@2.0.7:
@@ -14532,7 +14532,7 @@ snapshots:
       joi: 17.13.3
       lodash: 4.17.21
       minimist: 1.2.8
-      rxjs: 7.8.1
+      rxjs: 7.8.2
     transitivePeerDependencies:
       - debug
 
