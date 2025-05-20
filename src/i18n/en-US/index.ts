@@ -1,5 +1,5 @@
 export default {
-  formLabels: {
+  labels: {
     fullName: 'Full Name',
     address: 'Address',
     city: 'City / Area',
@@ -11,7 +11,16 @@ export default {
     weight: 'Weight',
     height: 'Height',
     length: 'Length',
-    width: 'Width'
+    width: 'Width',
+    pickupLocation: 'Pickup Location',
+    urgentDelivery: 'Delivery Type',
+    deliveryPickup: 'Delivery / Pickup Type',
+    sameDay: 'Delivery Time',
+    protocolNumber: 'Protocol Type',
+    dimensions: "Dimensions",
+    dateCreated: "Date",
+    actions: "Actions",
+    id: "ID"
   },
   placeholders: {
     fullName: 'Enter full name...',
@@ -25,13 +34,6 @@ export default {
     height: 'Enter height...',
     length: 'Enter length...',
     width: 'Enter width...'
-  },
-  selectLabels: {
-    pickupLocation: 'Pickup Location',
-    urgentDelivery: 'Delivery Type',
-    deliveryPickup: 'Delivery / Pickup Type',
-    sameDay: 'Delivery Time',
-    protocolNumber: 'Protocol Type'
   },
   selectOptions: {
     pickupLocation: {

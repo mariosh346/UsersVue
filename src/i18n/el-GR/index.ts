@@ -1,5 +1,5 @@
 export default {
-  formLabels: {
+  labels: {
     fullName: 'Ονοματεπώνυμο',
     address: 'Διεύθυνση',
     city: 'Πόλη / Περιοχή',
@@ -11,7 +11,16 @@ export default {
     weight: 'Βάρος',
     height: 'Ύψος',
     length: 'Μήκος',
-    width: 'Πλάτος'
+    width: 'Πλάτος',
+    pickupLocation: 'Τύπος παραλαβής',
+    urgentDelivery: 'Τύπος παράδοσης',
+    deliveryPickup: 'Είδος παράδοσης',
+    sameDay: 'Χρόνος παράδοσης',
+    protocolNumber: 'Τύπος Πρωτοκόλλου',
+    dimensions: "Διαστάσεις",
+    dateCreated: "Ημερομηνία",
+    actions: "Ενέργειες",
+    id: "ID"
   },
   placeholders: {
     fullName: 'Εισάγετε ονοματεπώνυμο...',
@@ -25,13 +34,6 @@ export default {
     height: 'Εισάγετε ύψος...',
     length: 'Εισάγετε μήκος...',
     width: 'Εισάγετε πλάτος...'
-  },
-  selectLabels: {
-    pickupLocation: 'Τύπος παραλαβής',
-    urgentDelivery: 'Τύπος παράδοσης',
-    deliveryPickup: 'Είδος παράδοσης',
-    sameDay: 'Χρόνος παράδοσης',
-    protocolNumber: 'Τύπος Πρωτοκόλλου'
   },
   selectOptions: {
     pickupLocation: {

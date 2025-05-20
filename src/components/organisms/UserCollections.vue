@@ -84,6 +84,7 @@ import type { QTableProps } from 'quasar';
 import NewUserItem from './items/NewUserItem.vue';
 import UpdateUserItem from './items/UpdateUserItem.vue';
 import BaseBtn from 'src/components/atoms/BaseBtn.vue';
+import { useI18n } from 'vue-i18n';
 
 const userStore = useUserStore();
 if (!userStore.uid) {
@@ -112,24 +113,26 @@ const setSelectedItem = (key: string) => {
 
 };
 
+const { t } = useI18n();
 const columns: QTableProps["columns"] = [
-  { name: "id", label: "ID", field: "id", align: "left", sortable: true },
-  { name: "fullName", label: "Ονοματεπώνυμο", field: "fullName", align: "left", sortable: true },
-  { name: "address", label: "Διεύθυνση", field: "address", align: "left", sortable: true },
-  { name: "city", label: "Πόλη / Περιοχή", field: "city", align: "left", sortable: true },
-  { name: "postalCode", label: "Τ.Κ.", field: "postalCode", align: "left", sortable: true },
-  { name: "phone", label: "Τηλέφωνο", field: "phone", align: "left", sortable: true },
-  { name: "orderNumber", label: "Αρ. Παραγγελίας", field: "orderNumber", align: "left", sortable: true },
-  { name: "cashOnDelivery", label: "Αντικαταβολή", field: "cashOnDelivery", align: "left", sortable: true },
-  { name: "weight", label: "Βάρος", field: "weight", align: "left", sortable: true },
-  { name: "dimensions", label: "Διαστάσεις", field: "dimensions", align: "left" },
-  { name: "pickupFromStore", label: "Παραλαβή από κατάστημα", field: "pickupFromStore", align: "center" },
-  { name: "urgentDelivery", label: "Επείγουσα Παράδοση", field: "urgentDelivery", align: "center" },
-  { name: "deliveryPickup", label: "Παράδοση - Παραλαβή", field: "deliveryPickup", align: "center" },
-  { name: "sameDay", label: "Αυθημερόν", field: "sameDay", align: "center" },
-  { name: "protocolNumberCheckbox", label: "Αρ. Πρωτοκόλλου", field: "protocolNumberCheckbox", align: "center" },
-  { name: "dateCreated", label: "Ημερομηνία", field: "dateCreated", align: "left", sortable: true },
-  { name: "actions", label: "Ενέργειες", field: "actions", align: "center" },
+  { name: "id", label: t('labels.id'), field: "id", align: "left", sortable: true },
+  { name: "fullName", label: t('labels.fullName'), field: "fullName", align: "left", sortable: true },
+  { name: "address", label: t('labels.address'), field: "address", align: "left", sortable: true },
+  { name: "city", label: t('labels.city'), field: "city", align: "left", sortable: true },
+  { name: "postalCode", label: t('labels.postalCode'), field: "postalCode", align: "left", sortable: true },
+  { name: "phone", label: t('labels.phone'), field: "phone", align: "left", sortable: true },
+  { name: "orderNumber", label: t('labels.orderNumber'), field: "orderNumber", align: "left", sortable: true },
+  { name: "cashOnDelivery", label: t('labels.cashOnDelivery'), field: "cashOnDelivery", align: "left", sortable: true },
+  { name: "weight", label: t('labels.weight'), field: "weight", align: "left", sortable: true },
+  { name: "dimensions", label:  t('labels.dimensions'), field: "dimensions", align: "left" },
+  { name: "pickupFromStore", label: t('labels.pickupLocation'), field: "pickupFromStore", align: "center" },
+  { name: "urgentDelivery", label: t('labels.urgentDelivery'), field: "urgentDelivery", align: "center" },
+  { name: "deliveryPickup", label: t('labels.deliveryPickup'), field: "deliveryPickup", align: "center" },
+  { name: "sameDay", label: t('labels.sameDay'), field: "sameDay", align: "center" },
+  { name: "protocolNumberCheckbox", label: t('labels.protocolNumber'),
+    field: "protocolNumberCheckbox", align: "center" },
+  { name: "dateCreated", label: t('labels.dateCreated'), field: "dateCreated", align: "left", sortable: true },
+  { name: "actions", label: t('labels.actions'), field: "actions", align: "center" },
 ];
 
 const pagination = ref({
