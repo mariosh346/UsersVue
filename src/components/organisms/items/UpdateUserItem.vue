@@ -3,7 +3,7 @@
     :item="item"
     :error="error"
     :loading="loading"
-    :button-label="$t('Επεξεργασία Καταχώρησης')"
+    :button-label="$t('Edit Entry')"
     @submit="onSubmit"
   >
     <!-- <BaseInput

@@ -86,6 +86,7 @@ export default {
   email: "Email",
   email_required: "Το email είναι υποχρεωτικό",
   "New Entry": "Νέα Καταχώρηση",
+  "Edit Entry": "Επεξεργασία Καταχώρησης",
   Logout: "Αποσυνδεση",
   validation: {
     required: 'This field is required'

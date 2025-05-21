@@ -176,7 +176,9 @@ const {item} = toRefs(props);
 const required = (val: unknown) => !!val || t(VALIDATION_MESSAGES.required);
 
 const objectToOptions = (obj: Record<string, { label: string; value: string }>) =>
-  Object.values(obj);
+  Object.values(obj).map(
+    ({ label, value }) => ({ label: t(label), value: t(value) })
+  );
 
 const copyForm = (newVal: UserCollectionForm) => {
 

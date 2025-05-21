@@ -86,6 +86,7 @@ export default {
   email: "Email",
   email_required: "Email is required",
   "New Entry": "New Entry",
+  "Edit Entry": "Edit Entry",
   Logout: "Logout",
   validation: {
     required: 'This field is required'
