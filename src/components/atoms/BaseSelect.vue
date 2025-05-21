@@ -2,7 +2,7 @@
   <q-select
     :model-value="selectedOption"
     :options="options"
-    :label="label"
+    :label="label && $t(label)"
     filled
     v-bind="$attrs"
     class="max-w-lg"

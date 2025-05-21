@@ -1,69 +1,65 @@
 export const FORM_LABELS = {
-  fullName: 'Ονοματεπώνυμο',
-  address: 'Διεύθυνση',
-  city: 'Πόλη / Περιοχή',
-  postalCode: 'Τ.Κ.',
-  phone: 'Τηλέφωνο',
-  orderNumber: 'Αρ. Παραγγελίας / Κλειδί',
-  cashOnDelivery: 'Αντικαταβολή / Είσπραξη',
-  notes: 'Παρατηρήσεις',
-  weight: 'Βάρος',
-  height: 'Ύψος',
-  length: 'Μήκος',
-  width: 'Πλάτος'
+  fullName: 'labels.fullName',
+  address: 'labels.address',
+  city: 'labels.city',
+  postalCode: 'labels.postalCode',
+  phone: 'labels.phone',
+  orderNumber: 'labels.orderNumber',
+  cashOnDelivery: 'labels.cashOnDelivery',
+  notes: 'labels.notes',
+  weight: 'labels.weight',
+  height: 'labels.height',
+  length: 'labels.length',
+  width: 'labels.width'
 };
 
 export const PLACEHOLDERS = {
-  fullName: 'Εισάγετε ονοματεπώνυμο...',
-  address: 'Εισάγετε διεύθυνση...',
-  city: 'Εισάγετε πόλη / περιοχή...',
-  postalCode: 'Εισάγετε τ.κ...',
-  phone: 'Εισάγετε τηλέφωνο...',
-  orderNumber: 'Εισάγετε αριθμό παραγγελίας / κλειδί...',
-  cashOnDelivery: 'Εισάγετε αντικαταβολή / είσπραξη...',
-  weight: 'Εισάγετε βάρος...',
-  height: 'Εισάγετε ύψος...',
-  length: 'Εισάγετε μήκος...',
-  width: 'Εισάγετε πλάτος...'
+  fullName: 'placeholders.fullName',
+  address: 'placeholders.address',
+  city: 'placeholders.city',
+  postalCode: 'placeholders.postalCode',
+  phone: 'placeholders.phone',
+  orderNumber: 'placeholders.orderNumber',
+  cashOnDelivery: 'placeholders.cashOnDelivery',
+  weight: 'placeholders.weight',
+  height: 'placeholders.height',
+  length: 'placeholders.length',
+  width: 'placeholders.width'
 };
 
 export const SELECT_LABELS = {
-  pickupLocation: 'Τύπος παραλαβής',
-  urgentDelivery: 'Τύπος παράδοσης',
-  deliveryPickup: 'Είδος παράδοσης',
-  sameDay: 'Χρόνος παράδοσης',
-  protocolNumber: 'Τύπος Πρωτοκόλλου'
+  pickupLocation: 'labels.pickupLocation',
+  urgentDelivery: 'labels.urgentDelivery',
+  deliveryPickup: 'labels.deliveryPickup',
+  sameDay: 'labels.sameDay',
+  protocolNumber: 'labels.protocolNumber'
 };
 
 export const PICKUP_LOCATION = {
-  store: { label: 'Παραλαβή από το κατάστημα', value: 'store' },
-  delivery: { label: 'Παράδοση', value: 'delivery' }
+  store: { label: 'selectOptions.pickupLocation.store', value: 'store' },
+  delivery: { label: 'selectOptions.pickupLocation.delivery', value: 'delivery' }
 } as const;
 
 export const URGENT_DELIVERY = {
-  normal: { label: 'Κανονική Παράδοση', value: 'normal' },
-  urgent: { label: 'Επείγουσα Παράδοση', value: 'urgent' }
+  normal: { label: 'selectOptions.urgentDelivery.normal', value: 'normal' },
+  urgent: { label: 'selectOptions.urgentDelivery.urgent', value: 'urgent' }
 } as const;
 
 export const DELIVERY_PICKUP = {
-  simple: { label: 'Απλή παράδοση', value: 'simple' },
-  pickup: { label: 'Παράδοση - Παραλαβή', value: 'pickup' }
+  simple: { label: 'selectOptions.deliveryPickup.simple', value: 'simple' },
+  pickup: { label: 'selectOptions.deliveryPickup.pickup', value: 'pickup' }
 } as const;
 
 export const SAME_DAY = {
-  normal: { label: 'Κανονική παράδοση', value: 'normal' },
-  same_day: { label: 'Αυθημερόν', value: 'same_day' }
+  normal: { label: 'selectOptions.sameDay.normal', value: 'normal' },
+  same_day: { label: 'selectOptions.sameDay.sameDay', value: 'same_day' }
 } as const;
 
 export const PROTOCOL_NUMBER = {
-  none: { label: 'Χωρίς Πρωτόκολλο', value: 'none' },
-  simple: { label: 'Με Πρωτόκολλο', value: 'simple' },
+  none: { label: 'selectOptions.protocolNumber.none', value: 'none' },
+  simple: { label: 'selectOptions.protocolNumber.simple', value: 'simple' },
 } as const;
 
 export const VALIDATION_MESSAGES = {
-  required: 'Το πεδίο είναι υποχρεωτικό'
+  required: 'validation.required'
 } as const;
-
-// Helper function to convert object to array for q-select
-export const objectToOptions = (obj: Record<string, { label: string; value: string }>) =>
-  Object.values(obj);

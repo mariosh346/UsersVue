@@ -85,5 +85,8 @@ export default {
   reset_email_sent: "Reset email sent successfully",
   reset_email_failed: "Reset email sending failed",
   email: "Email",
-  email_required: "Email is required"
+  email_required: "Email is required",
+  validation: {
+    required: 'This field is required'
+  },
 };

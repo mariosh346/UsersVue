@@ -35,6 +35,13 @@ export default {
     length: 'Εισάγετε μήκος...',
     width: 'Εισάγετε πλάτος...'
   },
+  selectLabels: {
+    pickupLocation: 'Τύπος παραλαβής',
+    urgentDelivery: 'Τύπος παράδοσης',
+    deliveryPickup: 'Είδος παράδοσης',
+    sameDay: 'Χρόνος παράδοσης',
+    protocolNumber: 'Τύπος Πρωτοκόλλου'
+  },
   selectOptions: {
     pickupLocation: {
       store: 'Παραλαβή από το κατάστημα',

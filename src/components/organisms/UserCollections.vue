@@ -10,41 +10,6 @@
       no-data-label="No orders found for this user."
       class="max-w-screen mb-8"
     >
-      <!-- <template #body-cell-pickupFromStore="props">
-        <ServiceStatus
-          :props="props"
-          :active="props.row.pickupFromStore"
-        />
-      </template>
-
-      <template #body-cell-urgentDelivery="props">
-        <ServiceStatus
-          :props="props"
-          :active="props.row.urgentDelivery"
-        />
-      </template>
-
-      <template #body-cell-deliveryPickup="props">
-        <ServiceStatus
-          :props="props"
-          :active="props.row.deliveryPickup"
-        />
-      </template>
-
-      <template #body-cell-sameDay="props">
-        <ServiceStatus
-          :props="props"
-          :active="props.row.sameDay"
-        />
-      </template>
-
-      <template #body-cell-protocolNumberCheckbox="props">
-        <ServiceStatus
-          :props="props"
-          :active="props.row.protocolNumberCheckbox"
-        />
-      </template> -->
-
       <template #body-cell-dimensions="props">
         <q-td
           :props="props"

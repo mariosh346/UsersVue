@@ -137,7 +137,6 @@
 </template>
 
 <script setup lang="ts">
-import { required } from 'src/constants/validationRules';
 import type { PropType } from 'vue';
 import { ref, computed, watch, toRefs } from 'vue';
 import {
@@ -149,13 +148,16 @@ import {
   DELIVERY_PICKUP,
   SAME_DAY,
   PROTOCOL_NUMBER,
-  objectToOptions
+  VALIDATION_MESSAGES
 } from 'src/constants/strings';
 import { userCollectionFormDefault, type UserCollectionForm } from 'src/types/forms';
 import BaseInput from 'src/components/atoms/BaseInput.vue';
 import BaseSelect from 'src/components/atoms/BaseSelect.vue';
 import BaseBtn from 'src/components/atoms/BaseBtn.vue';
 import ErrorBanner from 'src/components/atoms/ErrorBanner.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps({
   item: {
@@ -170,6 +172,11 @@ const emit = defineEmits<{
   (e: 'submit', value: typeof props["item"]): void;
 }>();
 const {item} = toRefs(props);
+
+const required = (val: unknown) => !!val || t(VALIDATION_MESSAGES.required);
+
+const objectToOptions = (obj: Record<string, { label: string; value: string }>) =>
+  Object.values(obj);
 
 const copyForm = (newVal: UserCollectionForm) => {
 
