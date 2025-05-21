@@ -66,7 +66,6 @@ export default {
   go_home: "Go Home",
   login: "Login",
   sign_up: "Sign Up",
-  forum_caption: "forum.quasar.dev",
   users_app: "Users App",
   essential_links: "Essential Links",
   open_menu: "Open Menu",
@@ -86,6 +85,8 @@ export default {
   reset_email_failed: "Reset email sending failed",
   email: "Email",
   email_required: "Email is required",
+  "New Entry": "New Entry",
+  Logout: "Αποσυνδεση",
   validation: {
     required: 'This field is required'
   },

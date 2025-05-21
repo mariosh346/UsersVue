@@ -3,7 +3,7 @@ import { createI18n } from 'vue-i18n';
 import messages from 'src/i18n';
 
 export type MessageLanguages = keyof typeof messages;
-export type MessageSchema = typeof messages['el-GR'];
+export type MessageSchema = typeof messages['en-US'];
 
 // See https://vue-i18n.intlify.dev/guide/advanced/typescript.html#global-resource-schema-type-definition
 /* eslint-disable @typescript-eslint/no-empty-object-type */

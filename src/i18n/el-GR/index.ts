@@ -35,13 +35,6 @@ export default {
     length: 'Εισάγετε μήκος...',
     width: 'Εισάγετε πλάτος...'
   },
-  selectLabels: {
-    pickupLocation: 'Τύπος παραλαβής',
-    urgentDelivery: 'Τύπος παράδοσης',
-    deliveryPickup: 'Είδος παράδοσης',
-    sameDay: 'Χρόνος παράδοσης',
-    protocolNumber: 'Τύπος Πρωτοκόλλου'
-  },
   selectOptions: {
     pickupLocation: {
       store: 'Παραλαβή από το κατάστημα',
@@ -91,5 +84,10 @@ export default {
   reset_email_sent: "Το email επαναφοράς στάλθηκε επιτυχώς",
   reset_email_failed: "Αποτυχία αποστολής email επαναφοράς",
   email: "Email",
-  email_required: "Το email είναι υποχρεωτικό"
+  email_required: "Το email είναι υποχρεωτικό",
+  "New Entry": "Νέα Καταχώρηση",
+  Logout: "Αποσυνδεση",
+  validation: {
+    required: 'This field is required'
+  },
 };

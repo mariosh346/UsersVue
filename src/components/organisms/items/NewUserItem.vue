@@ -3,7 +3,7 @@
     :item="item"
     :error="error"
     :loading="loading"
-    :button-label="$t('Νέα Καταχώρηση')"
+    :button-label="$t('New Entry')"
     @submit="onSubmit"
   />
 </template>

@@ -5,7 +5,7 @@
     color="secondary"
     @click="handleSignout"
   >
-    {{ $t('Αποσυνδεση') }}
+    {{ $t('Logout') }}
   </base-btn>
 </template>
 
@@ -22,12 +22,12 @@ const handleSignout = () => {
     .then(() => {
 
       useUserStore().setUser(null);
-    
+
     })
     .catch((error) => {
 
       console.error('Failed signout', error);
-    
+
     });
 
 };
